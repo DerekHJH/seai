@@ -1,96 +1,10 @@
----
-author: Eunsuk Kang & Christian Kaestner
-title: "17-445: Motivation, Syllabus, and Introductions"
-semester: Spring 2021
-footer: "17-445 Machine Learning in Production / AI Engineering, Eunsuk Kang & Christian Kaestner"
-license: Creative Commons Attribution 4.0 International (CC BY 4.0)
----  
-
-# Machine Learning in Production /
-# AI Engineering 
-
-## Motivation, Syllabus, and Introductions
-
-Spring 2021, Eunsuk Kang & Christian Kaestner
-
-
----
-
-# Lecture Logistics during a Pandemic 
-
-If you can hear me, open the participant panel in Zoom and check "yes"
-
-![Zoom interface](zoomvote.png)
-
-----
-## First of: This is not normal. We understand.
-
-![Fire](https://www.abc27.com/wp-content/uploads/sites/55/2020/08/AP20232111894684.jpg)
-<!-- .element: class="stretch" -->
-
-
-Note: Picture AP Photo/Noah Berger, https://www.abc27.com/news/thats-2020-photographers-california-wildfire-image-a-sign-of-the-times/
-
-----
-## First of: This is not normal. We understand.
-
-Expect:
-* Internet and bandwidth issues
-* Timezone issues
-* Distractions -- parents, siblings, pets
-* Feeling isolated, feeling overwhelmed
-* Many additional sources of stress
-* Hard time dealing with -gestures widely- *everything*...
-
-*Talk to us about accommodations of any kind*
-
-
-
-----
-## Simulating in-class experience
-
-> Discussions and interactions are important. We'll have regular in-class discussions and exercises
-
-* Use chat, "raise hand" feature, or just speak
-* If possible, keep camera on, muted by default
-* Set preferred name in Zoom
-* If possible, attend lecture and recitation live (recordings and early-morning office hours as backup)
-* 
-* Suggestion: Have chat and participant list open, maybe separate window for gallery view for faces, second monitor highly recommended
-* **Contact us for accommodations!**
-
-----
-## Personal Connection
-
-> This is hard. We know.
-
-* Talk inside and outside of class
-* We are here always 10 min before class and stay after class if you have questions, want to chat
-* We encourage collaboration in all assignments, even "individual" assignments and reading quizzes
-* We encourage social activities in teams
-
-
-
-
----
-
-## Learning Goals
+# Learning Goals
 
 * Understand how AI components are parts of larger systems
 * Illustrate the challenges in engineering an AI-enabled system beyond accuracy
 * Explain the role of specifications and their lack in machine learning and the relationship to deductive and inductive reasoning
 * Summarize the respective goals and challenges of software engineers vs data scientists
-* Explain the concept and relevance of "T-shaped people"
-
----
-
-# Disclaimers
-
-This class captures a rapidly evolving field. 
-
-Many experiments for online teaching.
-
-We are software engineers.
+* Explain the concept and relevance of "T-shaped people
 
 ---
 
@@ -134,24 +48,6 @@ Research has shown amazing accuracy for talks in medicine, poverty and inequalit
 
 Idea: Let's commercialize the software and sell to academics and conference organizers
 
-----
-
-## Likely challenges in building commercial product?
-
-* Think about 2 challenges that the team will likely focus when turning their research into *a product* (business, development, deployment, operation)
-* At least one challenge should not be about learning a good ML model, but about *building a product*
-* Everybody, **type 2 likely challenges in the chat but *do not send them yet*. Vote "yes" when done.**
-
-<!-- discussion -->
-
-----
-
-## What qualities are important for a good commercial transcription product?
-
-<!-- discussion -->
-
-
-----
 ## ML in a Production System
 
 
@@ -163,13 +59,6 @@ Idea: Let's commercialize the software and sell to academics and conference orga
 
 
 ![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture2.png)
-
-
-----
-
-![Screenshot of Temi transcription service](temi.png)
-
-Notes: Highlights challenging fragments. Can see what users fix inplace to correct. Star rating for feedback.
 
 ----
 
@@ -184,9 +73,6 @@ Notes: Highlights challenging fragments. Can see what users fix inplace to corre
         <text x=570 y=160 dominant-baseline="middle" text-anchor="middle">Software</text>
         <text x=570 y=240 dominant-baseline="middle" text-anchor="middle">Engineers</text>
 </svg>
-
-and Domain specialists + Operators + Business team + Project managers + Designers, UI Experts + Safety, security specialists + Lawyers + Social scientists + ...
-
 ----
 ## Data scientist
 
@@ -195,8 +81,6 @@ and Domain specialists + Operators + Business team + Project managers + Designer
 * Prototyping, often Jupyter notebooks or similar 
 * Expert in modeling techniques and feature engineering
 * Model size, updateability, implementation stability typically does not matter
-
-<!-- split -->
 
 ## Software engineer
 
@@ -208,38 +92,15 @@ and Domain specialists + Operators + Business team + Project managers + Designer
 * Maintain, evolve, and extend the product over long periods
 * Consider requirements for security, safety, fairness
 
-----
-
-## Likely collaboration challenges?
-
-<!-- discussion -->
-
-
-----
 ## What might Software Engineers and Data Scientists Focus on?
-
-
-![Screenshot of Temi transcription service](temi.png)
-
-
-
-
-----
 
 ![Unicorns](roles_venn.svg)
 
-<!-- references -->
-By Steven Geringer, via Ryan Orban. [Bridging the Gap Between Data Science & Engineer: Building High-Performance Teams](https://www.slideshare.net/ryanorban/bridging-the-gap-between-data-science-engineer-building-highperformance-teams/3-Software_Engineer_Data_Engineer_Data). 2016
-
-
-----
 ## T-Shaped People
 
 *Broad-range generalist + Deep expertise*
 
 ![T-Shaped](tshaped.png)
-
-<!-- reference -->
 Figure: Jason Yip. [Why T-shaped people?](https://medium.com/@jchyip/why-t-shaped-people-e8706198e437). 2018
 
 ----
@@ -250,94 +111,6 @@ Figure: Jason Yip. [Why T-shaped people?](https://medium.com/@jchyip/why-t-shape
 Example:
 * Basic skills of software engineering, business, distributed computing, and communication
 * Deep skills in deep neural networks (technique) and medical systems (domain)
-
-
-
-
-----
-
-## Examples for discussion
-
-* What does correctness or accuracy really mean? What accuracy do customers care about?
-* How can we see how well we are doing in practice? How much feedback are customers going to give us before they leave?
-* Can we estimate how good our transcriptions are? How are we doing for different customers or different topics?
-* How to present results to the customers (including confidence)?
-* When customers complain about poor transcriptions, how to prioritize and what to do?
-* 
-* What are unacceptable mistakes and how can they be avoided? Is there a safety risk?
-* Can we cope with an influx of customers?
-* Will transcribing the same audio twice produce the same result? Does it matter? 
-* How can we debug and fix problems? How quickly?
-
-----
-
-## Examples for discussion 2
-
-* With more customers, transcriptions are taking longer and longer -- what can we do?
-* Transcriptions sometimes crash. What to do?
-* How do we achieve high availability?
-* How can we see that everything is going fine and page somebody if it is not?
-* We improve our entity detection model but somehow system behavior degrades... Why?
-* Tensorflow update; does our infrastructure still work?
-* Once somewhat successful, how to handle large amounts of data per day?
-* Buy more machines or move to the cloud?
-*
-* Models are continuously improved. When to deploy? Can we roll back?
-* Can we offer live transcription as an app? As a web service?
-* Can we get better the longer a person talks? Should we then go back and reanalyze the beginning? Will this benefit the next upload as well?
-
-----
-
-## Examples for discussion 3
-
-* How many domains can be supported? Do we have the server capacity?
-* How specific should domains be? Medical vs "International Conference on Allergy & Immunology"?
-* How to make it easy to support new domains?
-* 
-* Can we handle accents? 
-* Better recognition of male than female speakers?
-* 
-* Can and should we learn from customer data? 
-* How can we debug problems on audio files we are not allowed to see?
-* Any chance we might private leak customer data? 
-* Can competitors or bad actors attack our system?
-
-
-
-
----
-
-# Syllabus and Class Structure
-
-11-695/17-445/17-645/17-745, Spring 2021, 12 units
-
-Monday/Wednesdays 2:20-3:40pm Eastern Time, here on Zoom
-
-Recitation Fridays 10:20-11:20am Eastern Time, on Zoom
-
-----
-
-## Instructors
-
-Eunsuk Kang, Christian Kaestner, Kartik Ramesh Iyer
-
-< brief introductions >
-
-----
-
-## Communication
-
-Email to us or ping us on slack (invite link on Canvas)
-
-Announcements through canvas
-
-No fixed office hours (other than for time-zone accommodations), but will always stick around after lecture and recitation and we will always try to be available for extra meetings within 24h weekdays.
-
-Welcome to ask questions publicly on Canvas or Slack.
-
-Materials on GitHub. Pull requests encouraged!
-
-----
 
 ## Class with software engineering flavor
 
@@ -353,38 +126,9 @@ Materials on GitHub. Pull requests encouraged!
 
 ## Prerequisites
 
-<!-- colstart -->
-**Some machine-learning experience required**
-
-* Basic understanding of data science process, incl data cleaning, feature engineering, learning
-* High level understand of machine-learning approaches
-    - supervised learning
-    - regression, decision trees, neural networks
-    - accuracy, recall, precision, ROC curve
-* Ideally some experience with notebooks and sklearn or other frameworks
-
-<!-- col -->
-**No software-engineering knowledge required**
-
-* Basic programming and command-line skills will be needed
 * Teamwork experience in product team is useful but not required
 * No required exposure to requirements, software testing, software design, continuous integration, containers, process management, etc 
     * if you are familiar with these, there will be some redundancy -- sorry
-
-<!-- colend -->
-
-
-
-----
-
-## Active lecture
-
-* Case study driven
-* Discussion highly encouraged
-* Contribute own experience
-* Regular active in-class exercises
-* In-class presentation
-* Discussions over definitions
 
 
 ----
@@ -406,8 +150,6 @@ Most chapters assigned at some point in the semester
 Supplemented with research articles, blog posts, videos, podcasts, ...
 
 [Electronic version](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436) in the library
-
-<!-- split -->
 
 ![Building intelligent systems book](book.webp)
 
@@ -476,44 +218,6 @@ First recitation on Friday: remote work and collaboration + Git
 
 [[Example]](https://github.com/ckaestne/seai/blob/S2021/assignments/I1_case_study.md#grading)
 
-
-
-----
-
-## Participation
-
-* Participation is important
-    - Participation in in-class discussions
-    - Active participation in recitations
-    - Alternative arrangements if you cannot attend classes live
-* Participation != Attendance
-
-* Grading:
-  * 100%: Participates at least once in most lectures through chat or audio, or
-  * 100%: Participates in 25% of lectures and actively contributes to discussions in most recitations
-  * 90%: Participates at least once in over half of the lectures
-  * 70%: Participates at least once in 25% of the lectures
-  * 40%: Participates at least once in at least 3 lectures or recitations.
-  * 0%: No participation in the entire semester.
-
-
-----
-## Flexibility and Accommodations
-(details in syllabus)
-
-* 7 tokens per student:
-    - Submit individual assignment 1 day late for 1 token (after running out of tokens 15% penalty per late day)
-    - Redo individual assignment for 3 token
-    - Resubmit or submit reading quiz late for 1 token
-    - Remaining tokens count toward participation
-*
-* 7 tokens per team:
-    - Submit milestone 1 day late for 1 token (no late submissions accepted when out of tokens)
-    - Redo milestone for 3 token 
-
-* Exceptions and accommodations on request, email us.
-
-----
 ## Group project
 
 * Instructor-assigned teams
@@ -529,42 +233,7 @@ First recitation on Friday: remote work and collaboration + Git
 * Can complete all individual assignments and quizzes as pairs 
 * Need to switch partner every 2 weeks; we post recommended pairings on Canvas
 * Bonus points for considering collaboration on individual assignments
-* 
 * Bonus points for social interaction in project teams
-
-
-
-
-----
-
-## Academic honesty
-
-See web page
-
-In a nutshell: do not copy, do not lie, do not share or publicly release your solutions
-
-In group work, be honest about contributions of team members, do not cover for others
-
-If you feel overwhelmed or stressed, please come and talk to us (see syllabus for other support opportunities)
-
-
----
-# Introductions
-
-Let's go around the "room" for introductions:
-
-* Your (preferred) name
-* In two sentences, your data science background and goals
-* In two sentences, your software engineering background, if any, and goals
-* One topic you are particularly interested in, if any?
-
-![Chairs](chairs.jpg)
-
-
-
-
-
----
 
 # Summary
 
