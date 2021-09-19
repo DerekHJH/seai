@@ -1,19 +1,5 @@
 ---
-author: Christian Kaestner
-title: "17-445: From Models to AI-Enabled Systems"
-semester: Spring 2021
-footer: "17-445 Machine Learning in Production / AI Engineering, Eunsuk Kang & Christian Kaestner"
-license: Creative Commons Attribution 4.0 International (CC BY 4.0)
----  
-
-# From Models to Production Systems (Systems Thinking)
-
-Christian Kaestner
-
-<!-- references -->
-
 * Hulten, Geoff. "Building Intelligent Systems: A Guide to Machine Learning Engineering." (2018), Chapters 5, 7, and 8.
-
 ---
 
 # Learning goals
@@ -23,19 +9,8 @@ Christian Kaestner
 * Explain the modularity implications of having machine-learning components without specifications
 * Describe the typical components relating to AI in an AI-enabled system and typical design decisions to be made
 
-
-
-
-
-
-
-
-
----
 # ML Models as Part of a System
 
-
-----
 ## Example: Image Captioning Problem
 
 ![Image captioning one step](imgcaptioning.png)
@@ -53,23 +28,15 @@ Christian Kaestner
 
 ----
 ## Machine learning as (small) component in a system
-
-<!-- colstart -->
 ![Tax system architecture with an ML component](tax-with-ml.png)
-<!-- col -->
 [![Audit risk meter](audit-risk-meter.png)](https://ttlc.intuit.com/community/choosing-a-product/help/about-the-audit-risk-meter/00/25924)
-<!-- colend -->
 
 Note: Traditional non-ML tax software, with an added ML component for audit risk estimation
 
 ----
 ## Machine learning as (core) component in a system
-
-<!-- colstart -->
 ![Transcription system architecture](transcriptionarchitecture.png)
-<!-- col -->
 ![Screenshot of Temi transcription service](temi.png)
-<!-- colend -->
 
 Note: Transcription service, where interface is all built around an ML component
 
@@ -109,7 +76,7 @@ Note: Transcription service, where interface is all built around an ML component
 ## More Accurate Predictions may not be THAT Important
 
 * "Good enough" may be good enough
-* Prediction critical for system success or just an gimmick?
+* Prediction critical for system success or just an gimmick（骗人的花招）?
 * Better predictions may come at excessive costs 
     - need way more data, much longer training times
     - privacy concerns
@@ -124,9 +91,6 @@ Note: Transcription service, where interface is all built around an ML component
 
 ![Predictive policing](predictive-policing.png)
 
-
-
-----
 ## Machine learning that matters
 
 * 2012 essay lamenting focus on algorithmic improvements and benchmarks in ML
@@ -136,18 +100,12 @@ Note: Transcription service, where interface is all built around an ML component
   - lack of follow-through, no deployment, no impact
 * Failure to *reproduce* and *productionize* paper contributions common
 * Ignoring design choices in how to collect data, what problem to solve, how to design human-AI interface, measuring impact, ...
-*
 * Should focus on making impact -- requires building systems
-
 
 <!-- references -->
 
 Wagstaff, Kiri. "Machine learning that matters." In Proceedings of the 29 th International Conference on Machine Learning, (2012).
 
-
-
-
-----
 ## On Terminology
 
 * There is no standard term for referring to building systems with AI components
@@ -156,55 +114,22 @@ Wagstaff, Kiri. "Machine learning that matters." In Proceedings of the 29 th Int
 * sometimes "ML Systems Engineering" (but often this refers to building distributed and scalable ML learning and data storage platforms)
 * "AIOps" ~ using AI to make automated decisions in operations; "DataOps" ~ use of agile methods and automation in business data analytics; "MLOps" ~ technical infrastructure for operating AI-based products and on deploying updates
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
 # Systems Thinking
 
-
-
-----
 ## Repeat: Machine learning as component in a system
 
 ![Transcription system architecture](transcriptionarchitecture.png)
 
-
-----
 ## The System Interacts with Users
 
 [![Audit risk meter](audit-risk-meter.png)](https://ttlc.intuit.com/community/choosing-a-product/help/about-the-audit-risk-meter/00/25924)
 
 Note: Audit risk meter from Turbo-Tax
 
-----
 ## The System Interacts with the World
 
 ![Smart Toaster](toaster.jpg)
 
-
-----
 ## The System Interacts with the World
 
 ![Crime Map](crime-map.jpg)
@@ -212,7 +137,6 @@ Note: Audit risk meter from Turbo-Tax
 * Model: Use historical data to predict crime rates by neighborhoods
 * Used for predictive policing: Decide where to allocate police patrol
 
-----
 ## System <-> World = Feedback Loops?
 
 ![Crime Map](crime-map.jpg)
@@ -226,34 +150,25 @@ Model --> Predictions
 Predictions -->|influence| Data
 ```
 
-
-----
 ## ML Predictions have Consequences
 
 * Assistance, productivity, creativity
 * Manipulation, polarization, discrimination
 * Feedback loops
 
-
-----
 ## Safety is a System Property
 
-* Code/models are not unsafe, cannot harm people
+* Code/models are safe, cannot harm people
 * Systems can interact with the environment in ways that are unsafe
 
 ![Smart Toaster](toaster.jpg)
 
-----
 ## Safety Assurance in the Model/outside the Model
 
 > Goal: Ensure smart toaster does not burn the kitchen
 
-<!-- discussion -->
-
-----
 ## Safety Assurance in the Model/outside the Model
 
-<!-- colstart -->
 * In the model
   - Ensure maximum toasting time
   - Use heat sensor and past outputs for prediction
@@ -263,13 +178,8 @@ Predictions -->|influence| Data
   - Non-ML rule to shut down if too hot
   - Hardware solution: thermal fuse
 
-<!-- col -->
-
 ![Thermal fuse](thermalfuse.png)
-(Image CC BY-SA 4.0, C J Cowie)
-<!-- colend -->
 
-----
 ## Model vs System Properties
 
 * Similar to safety, many other qualities should be discussed at model **and** system level
@@ -281,13 +191,9 @@ Predictions -->|influence| Data
   - Impact on system goals
   - ...
 
-
-
-
-----
 ## Thinking about Systems
 
-* Holistic approach, looking at the larger picture, involving all stakeholders
+* Holistic（整体的） approach, looking at the larger picture, involving all stakeholders
 * Looking at relationships and interactions among components and environments
     - Everything is interconnected
     - Combining parts creates something new with emergent behavior
@@ -295,11 +201,8 @@ Predictions -->|influence| Data
 * Understand how humans interact with the system
 
 > A system is a set of inter-related components that work together in a particular environment to perform whatever functions are required to achieve the system's objective -- Donella Meadows
+> Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Systems Thinking](https://medium.com/disruptive-design/tools-for-systems-thinkers-the-6-fundamental-concepts-of-systems-thinking-379cdac3dc6a)." Blogpost 2017
 
-<!-- references -->
-Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Systems Thinking](https://medium.com/disruptive-design/tools-for-systems-thinkers-the-6-fundamental-concepts-of-systems-thinking-379cdac3dc6a)." Blogpost 2017
-
-----
 ## System-Level Challenges for AI-Enabled Systems
 
 * Getting and updating data, concept drift, changing requirements
@@ -311,18 +214,7 @@ Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Syst
 * Keeping training and operating cost manageable
 * Interdisciplinary teams
 * Setting system goals, balancing stakeholders and requirements
-* ...
 
-
-
-
-
-
-
-
-
-
----
 # Designing Intelligent Experiences
 
 (Human-AI Interaction)
@@ -340,12 +232,8 @@ Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Syst
 * Image search engine
 * Self-driving cars
 * Smart home
-*
 * Interact with the world through actuators (smart devices) or by influencing people
 
-
-
-----
 ## Designing Intelligent Experiences
 
 * How to use the output of a model's prediction (for a objective)?
@@ -383,28 +271,15 @@ Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Syst
 * **Value**: How much does a user (think to) benefit from the prediction?
 * **Cost**: What is the damage of a wrong prediction?
 
-
-
-
-
-----
 ## Breakout Discussion: Experience Design
-
-
-<!-- colstart -->
 
 Fall detection for elderly people:
 
 ![Smart watch](smartwatch.jpg)
 
-
-<!-- col -->
-
 Safe browsing: Blocking malicious web pages
 
 ![Safe browsing warning](warning.png)
-
-<!-- colend -->
 
 
 * How do we present the intelligence to the user?
@@ -420,22 +295,12 @@ Read more: [How fall detection is moving beyond the pendant](https://www.mobihea
 
 ![Safe Browsing Feedback](safe-browsing-feedback.png)
 
-
-
-
-
-
----
-
 # Operating Production ML Systems
 
 (deployment, updates)
 
 ----
 ## Things change...
-
-
-<!-- colstart -->
 
 * Newer better models released
   - Better model architectures
@@ -448,69 +313,31 @@ Read more: [How fall detection is moving beyond the pendant](https://www.mobihea
   - Increased adoption in region with dialect
 * Online experimentation
 
-
-<!-- col -->
-
 ![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture.png)
 
-
-<!-- colend -->
-----
 ## Things change...
-
-
-<!-- colstart -->
-
-<!-- discussion -->
-
-<!-- col -->
 
 *Reasons for change in audit risk prediction?*
 ![Audit prediction](audit-risk-meter.png)
 
-
-<!-- colend -->
-
-----
 ## Monitoring in Production
 
-Design for telemetry
-
-<!-- colstart -->
+Design for telemetry（遥感技术）
 ![Safe Browsing Feedback](safe-browsing-feedback.png)
-<!-- col -->
 ![Safe Browsing Statistics](safe-browsing-stats.png)
-<!-- colend -->
 
-
-----
 ## Monitoring in Production
-
-
-<!-- colstart -->
-
-<!-- discussion -->
-
-<!-- col -->
 
 *What and how to monitor in audit risk prediction?*
 ![Audit prediction](audit-risk-meter.png)
 
-
-<!-- colend -->
-
-----
 ## Pipeline Thinking
 
 
 ![Pipeline](pipeline.png)
 
-<!-- references -->
-
 * Graphic: Amershi et al. "[Software engineering for machine learning: A case study](https://www.microsoft.com/en-us/research/uploads/prod/2019/03/amershi-icse-2019_Software_Engineering_for_Machine_Learning.pdf)." In Proc ICSE-SEIP, 2019. 
 
-
-----
 ## Design with Pipeline and Monitoring in Mind
 
 ![Architecture diagram of transcription service; many components, not just ML](transcriptionarchitecture2.png)
@@ -523,26 +350,15 @@ Across interviews with enterprise ML teams:
 * Data scientists often focus on modeling in local environment, model-centric workflow
 * Rarely robust infrastructure, often monolithic and tangled
 * Challenges in deploying systems and integration with monitoring, streams etc
-* 
 * Shifting to pipeline-centric workflow challenging
 * Requires writing robust programs, slower, less exploratory
 * Standardized, modular infrastructure 
-* 
 * Big conceptual leap, major hurdle to adoption
 
 <!-- references -->
 
 O'Leary, Katie, and Makoto Uchida. "[Common problems with Creating Machine Learning Pipelines from Existing Code](https://research.google/pubs/pub48984.pdf)." Proc. Third Conference on Machine Learning and Systems (MLSys) (2020).
 
-
-
-
-
-
-
-
-
----
 # Traditional vs AI-based Software Systems
 
 (deductive vs inductive reasoning)
@@ -588,10 +404,7 @@ float computeDeductions(float agi, Expenses expenses) {
 * Deductive reasoning, using logic
 
 ![Tax computation system with three components](tax-decomposition.png)
-<!-- .element: class="stretch" -->
 
-
-----
 ## Debugging and Assigning Blame
 
 * Each component has own specification
@@ -608,9 +421,7 @@ float computeDeductions(float agi, Expenses expenses);
 ```
 
 ![Tax computation system with three components](tax-decomposition.png)
-<!-- .element: class="stretch" -->
 
-----
 ## Strict Correctness Assumption
 
 * Specification determines which outputs are correct/wrong
@@ -618,11 +429,9 @@ float computeDeductions(float agi, Expenses expenses);
 * A single wrong result indicates a bug in the system
 
 ![Tax computation system with three components](tax-decomposition.png)
-<!-- .element: class="stretch" -->
 
 Note: A single wrong tax prediction would be a bug. No tolerance of occasional wrong predictions, approximations, nondeterminism.
 
-----
 ## Image Captioning Algorithm
 
 
@@ -638,7 +447,6 @@ String getCaption(Image img);
 Note: We do not know how to program this or specify this.
 No way of saying whether caption is "correct" for input, but defer to human judgement.
 
-----
 ## Learning Image Captioning Algorithm
 
 ![Image captioning with ML](imgcaptioningml.png)
@@ -648,32 +456,24 @@ No way of saying whether caption is "correct" for input, but defer to human judg
 
 Note: "Rules"/algorithm learned from data. Still no specification. Best fit to given training data.
 
-----
 ## Correctness of Model?
-
-<!-- colstart -->
 ![Example of wrong caption](imgcaptioning-cake.png)
-<!-- col -->
+
 > All models are wrong, but some are useful. -- George Box
-<!-- colend -->
 
 <!-- references -->
 Image from: Nushi, Besmira, Ece Kamar, Eric Horvitz, and Donald Kossmann. "[On human intellect and machine failures: troubleshooting integrative machine learning systems](http://erichorvitz.com/human_repair_AI_pipeline.pdf)." In Proc. AAAI. 2017.
 
 Note: Human judgment needed. Furthermore, a single bad example is not a problem.
 
-----
 ## Weak Correctness Assumptions
 
 * Often no reliable ground truth (e.g. human judgment)
-* Accepting that mistakes will happen, hopefully not to frequently; "95% accuracy" may be pretty good
+* Accepting that mistakes will happen, hopefully not too frequently; "95% accuracy" may be pretty good
 * More confident for data similar to training data
 
 ![Example of wrong caption](imgcaptioning-cake.png)
-<!-- .element: class="stretch" -->
 
-
-----
 ## Specifications in Machine Learning?
 
 * Usually clear specifications do not exist -- we use machine learning exactly because we do not know the specifications
@@ -682,19 +482,9 @@ Note: Human judgment needed. Furthermore, a single bad example is not a problem.
   * Too complex
   * Rules unknown
 * ML will learn rules/specifications (inductive reasoning), often not in a human-readable form, but are those the right ones?
-* 
 * Usually goals used instead --> maximize a specific objective
 
-
-----
-
 [![Contrasting inductive and deductive reasoning](inductive.png)](https://danielmiessler.com/blog/the-difference-between-deductive-and-inductive-reasoning/)
-<!-- .element: class="stretch" -->
-
-
-(Daniel Miessler, CC SA 2.0)
-
-----
 
 ## Deductive Reasoning
 
@@ -702,10 +492,7 @@ Note: Human judgment needed. Furthermore, a single bad example is not a problem.
 * Proving theorems from axioms
 * From general to the particular
 * *mathy reasoning, eg. proof that π is irrational*
-* 
 * Formal methods, classic rule-based AI systems, expert systems
-
-<!-- split -->
 
 ## Inductive Reasoning
 
@@ -713,14 +500,9 @@ Note: Human judgment needed. Furthermore, a single bad example is not a problem.
 * Strong evidence suggests a rule
 * From particular to the general
 * *sciency reasoning, eg. finding laws of nature*
-* 
 * Most modern machine learning systems, statistical learning
 
-
-----
 ## Consequences from Lack of Specifications
-
-<!-- discussion -->
 
 
 Note: Breaks many traditional assumptions and foundations for compositional reasoning and divide and conquer
@@ -729,36 +511,25 @@ Poorly understood interactions between models:
 Ideally, develop models separately & compose together.
 In general, must train & tune together.
 
-----
 ## Decomposing the Image Captioning Problem?
 
 ![Image of a snowboarder](snowboarder.png)
 
 Note: Using insights of how humans reason: Captions contain important objects in the image and their relations. Captions follow typical language/grammatical structure
 
-----
 ## State of the Art Decomposition (in 2015)
 
 ![Captioning example](imgcaptioningml-decomposed.png)
-
-<!-- references -->
 Example and image from: Nushi, Besmira, Ece Kamar, Eric Horvitz, and Donald Kossmann. "[On human intellect and machine failures: troubleshooting integrative machine learning systems](http://erichorvitz.com/human_repair_AI_pipeline.pdf)." In Proc. AAAI. 2017.
 
-
-----
 ## Blame assignment?
 
 ![blame assignment problem](imgcaptioningml-blame.png)
-
-<!-- references -->
 Example and image from: Nushi, Besmira, Ece Kamar, Eric Horvitz, and Donald Kossmann. "[On human intellect and machine failures: troubleshooting integrative machine learning systems](http://erichorvitz.com/human_repair_AI_pipeline.pdf)." In Proc. AAAI. 2017.
 
-----
 ## Nonmonotonic errors
 
 ![example of nonmonotonic error](imgcaptioningml-nonmonotonic.png)
-
-<!-- references -->
 Example and image from: Nushi, Besmira, Ece Kamar, Eric Horvitz, and Donald Kossmann. "[On human intellect and machine failures: troubleshooting integrative machine learning systems](http://erichorvitz.com/human_repair_AI_pipeline.pdf)." In Proc. AAAI. 2017.
 
 
@@ -783,34 +554,8 @@ From guarantees to best effort...
 
 **For design, implementation, testing, deployment, operations?**
 
-
 *These problems are not new, but are exacerbated by the increasing use of ML!*
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
 # Summary
 
 * ML changes many engineering assumptions; from deductive to inductive reasoning; consequences for composition and abstraction
