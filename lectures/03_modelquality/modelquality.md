@@ -1,16 +1,4 @@
----
-author: Christian Kaestner and Eunsuk Kang
-title: "17-445: Model Quality"
-semester: Spring 2021
-footer: "17-445 Machine Learning in Production / AI Engineering, Eunsuk Kang & Christian Kaestner"
-license: Creative Commons Attribution 4.0 International (CC BY 4.0)
----
-
 # Model Quality
-
-Christian Kaestner
-
-<!-- references -->
 
 Required reading: 
 * 🕮 Hulten, Geoff. "[Building Intelligent Systems: A Guide to Machine Learning Engineering.](https://www.buildingintelligentsystems.com/)" Apress, 2018, Chapter 19 (Evaluating Intelligence).
@@ -31,7 +19,7 @@ Required reading:
 * Select and deploy automated infrastructure to evaluate and monitor model quality
 
 ---
-# Model Quality 
+# Model Quality
 
 ## First Part: Measuring Prediction Accuracy
 
@@ -328,14 +316,14 @@ Measuring success of correct classifications (or missing results):
 * False negative rate = FN/(TP+FN) = 1 - recall 
     * aka miss rate; *lower is better*
 
-*** 
+***
 
 Measuring rate of false classifications (or noise):
 * Precision = TP/(TP+FP)
     * aka positive predictive value; *higher is better*
 * False positive rate = FP/(FP+TN) 
     * aka fall-out; *lower is better*
-<!-- * False discovery rate = FP/(FP+TP) = 1 - precision -->
+    <!-- * False discovery rate = FP/(FP+TP) = 1 - precision -->
 
 ***
 
@@ -377,7 +365,7 @@ No answer vs wrong answer?
     - 0% false negative rate (does not miss any cancer cases)
     - low precision (also reports cancer for all noncancer cases)
     - 100% false positive rate (all noncancer cases reported as warnings)
- 
+
 ----
 ## Consider the Baseline Probability
 
@@ -1158,7 +1146,7 @@ Further readings: https://en.wikipedia.org/wiki/Newton%27s_laws_of_motion
 
 > "Since all models are wrong the scientist cannot obtain a "correct" one by excessive elaboration. On the contrary following William of Occam he should seek an economical description of natural phenomena." -- George Box, 1976
 
- 
+
 > "Since all models are wrong the scientist must be alert to what is importantly wrong. It is inappropriate to be concerned about mice when there are tigers abroad." -- George Box, 1976
 
 
@@ -1421,7 +1409,7 @@ Will not randomly sample from distribution of all days
 * White-box testing: Derive test cases to cover implementation paths
     - Line coverage, branch coverage
     - Control-flow, data-flow testing, MCDC, ...
-*
+    *
 * Test execution usually automated, but can be manual too
 * Automated generation from specifications or code possible
 
@@ -1714,7 +1702,7 @@ See discussion in D'Amour, Alexander, Katherine Heller, Dan Moldovan, Ben Adlam,
     - 10000s probably overkill
     - Reserve 1000s recent data points for evaluation (or 10%, whichever is more)
     - Reserve 100s for important subpopulations
- -->
+     -->
 
 ----
 ## Summary: Black-Box Testing Techniques as Inspiration
@@ -2176,7 +2164,7 @@ assertEquals(randomNumbers,
 * Quality depends on quality of the simulator and how well it can produce inputs from outputs: 
     * examples: render picture/video, synthesize speech, ... 
     * Less suitable where input-output relationship unknown, e.g., cancer detection, housing price prediction, shopping recommendations
-<!-- col -->
+    <!-- col -->
 ```mermaid
 graph TD;
     output -->|simulation| input
@@ -2268,7 +2256,7 @@ int divide(int A, int B) {
 * Make sure the bug is not reintroduced later
 * Execute test suite after changes to detect regressions
     - Ideally automatically with continuous integration tools
-*
+    *
 * Maps well to curating test sets for important populations in ML
 
 ----
@@ -2424,7 +2412,3 @@ Matei Zaharia. [Introducing MLflow: an Open Source Machine Learning Platform](ht
 * Ashmore, Rob, Radu Calinescu, and Colin Paterson. "[Assuring the machine learning lifecycle: Desiderata, methods, and challenges](https://arxiv.org/abs/1905.04223)." arXiv preprint arXiv:1905.04223. 2019.
 * D'Amour, Alexander, Katherine Heller, Dan Moldovan, Ben Adlam, Babak Alipanahi, Alex Beutel, Christina Chen et al. "[Underspecification presents challenges for credibility in modern machine learning](https://arxiv.org/abs/2011.03395)." *arXiv preprint arXiv:2011.03395* (2020).
 * Segura, Sergio, Gordon Fraser, Ana B. Sanchez, and Antonio Ruiz-Cortés. "[A survey on metamorphic testing](https://core.ac.uk/download/pdf/74235918.pdf)." IEEE Transactions on software engineering 42, no. 9 (2016): 805-824.
-
-
-<!-- smallish -->
-
