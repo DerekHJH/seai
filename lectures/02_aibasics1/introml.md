@@ -17,19 +17,9 @@ Suggested complementary reading: 🕮 Géron, Aurélien. ”[Hands-On Machine Le
 * Explain the benefits and drawbacks of notebooks
 * Demonstrate effective use of computational notebooks
 
-
-
-
-
----
-
 # Machine Learning
 
 > A computer program is said to learn from experience E with respect to some task T and some performance measure P, if its performance on T, as measured by P, improves with experience E. -- [Tom Mitchell, 1997](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/1feg4j8/alma991003098569704436)
-
-
-
-----
 
 ## Defining Machine Learning (simplified)
 
@@ -48,22 +38,11 @@ by observing data
 
 Typically used when writing that function manually is hard because the problem is hard or complex.
 
-
-----
 ## Running Example: House Price Analysis
 
 Given data about a house and its neighborhood, what is the likely sales price for this house?
 
 $f(size, rooms, tax, neighborhood, ...) \rightarrow price$
-
-
-![House for Sale](housesale.jpg)
-<!-- .element: class="stretch" -->
-
-
-
-
-----
 
 ## Supervised Machine Learning
 
@@ -75,9 +54,6 @@ learn a function $f(x_1, ..., x_n) \rightarrow y$
 
 that "fits" the given training set and "generalizes" to other data.
 
-
-
-----
 ## Training Data for House Price Analysis
 
 Collect data from past sales
@@ -90,14 +66,12 @@ Collect data from past sales
 | 0.032 | 0  | 2.1 | 0 | 6 | ... | 334.000 |
 | 0.069 | 0  | 2.1 | 0 | 7 | ... | 362.000 |
 
-----
 ## Common Datastructures: Dataframes
 
 * Tabular data, 2 dimensional
 * Named columns
 * Heterogeneous data: different types per column
 
-<!-- python-repl -->
 ```py 
 >>> d = {'x1': [1, 2], 
          'x2': ["overcast", "sunny"], 
@@ -114,47 +88,6 @@ y       bool
 dtype: object
 ```
 
-
-----
-## Linear Regression
-
-$f(x) = \alpha + \beta*x$
-
-![Linear regression](linear_regression.svg)
-
-
-Notes: One well known learning technique is linear regression.
-In the one-dimensional case, it simply fits a function
-$f(x) = \alpha + \beta*x$ to best explain all given data points
-(technically to minimize some error between f(x) and y across
-all given (x, y) pairs, e.g. sum of squared errors)
-
-----
-## Linear Regression
-
-$f(x) = \alpha + \beta_1 * x_1 + \beta_2 * x_2 + ... +  + \beta_n * x_n$
-
-![Linear regression](linear_regression2.png)
-
-
-<!-- references -->
-Graphic by [ivanmp](https://stackoverflow.com/questions/26431800/plot-linear-model-in-3d-with-matplotlib), CC BY-SA 3.0.
-
-Notes: This generalizes to many dimensions (and also interactions),
-though this will be hard to visualize.
-
-----
-## Does it learn?
-
-![Anscombe's quartet](anscombes_quartet_3.svg)
-
-<!-- references -->
-Graphic by Schutz, distributed under CC BY-SA 3.0
-
-Many different strategies to learn function $f(x_1, ..., x_n) \rightarrow y$ 
-
-
----
 # Learning with Decision Trees
 
 ```mermaid
@@ -176,10 +109,8 @@ get an intutive sense of the functioning and limitations of
 machine learning. Also this example will illustrate the role of
 hyperparameters and how they relate to overfitting/underfitting.
 
-----
 ## Decision Trees
-<!-- colstart -->
-<!-- small -->
+
 | Outlook | Temperature | Humidity | Windy | Play |
 | - | - | - | - | - |
 | overcast | hot  |  high   |  false |    yes |
@@ -199,7 +130,7 @@ hyperparameters and how they relate to overfitting/underfitting.
 | sunny    | cool |  normal |false |   yes |
 | sunny    | mild |  normal |  true |   yes |
 
-<!-- col -->
+
 f(Outlook, Temperature, Humidity, Windy) = 
 
 ```mermaid
@@ -213,96 +144,14 @@ graph TD;
   Humidity -->|Normal| Yes2((Yes));
 ```
 
-<!-- colend -->
-
-----
 ## Building Decision Trees
-<!-- colstart -->
-<!-- small -->
-| Outlook | Temperature | Humidity | Windy | Play |
-| - | - | - | - | - |
-| overcast | hot  |  high   |  false |    yes |
-| overcast | hot  |  high   |  false |    no |
-| overcast | hot  |  high   |  false |    yes |
-| overcast | cool |  normal |  true |       yes |
-| overcast | mild |  high   |  true|     yes |
-| overcast | hot  |  normal |  false |   yes |
-| rainy    | mild |  high   |  false | yes |
-| rainy    | cool |  normal |  false | yes |
-| rainy    | cool |  normal |  true |  no |
-| rainy    | mild |  normal |  false | yes |
-| rainy    | mild |  high   |  true |no |
-| sunny    | hot  |  high   |  false |  no |
-| sunny    | hot  |  high   |  true | no |
-| sunny    | mild |  high   |false | no |
-| sunny    | cool |  normal |false |   yes |
-| sunny    | mild |  normal |  true |   yes |
-
-<!-- col -->
-
-**[demo time](https://github.com/ckaestne/seai/tree/S2020/lectures/02_aibasics1/extras/decisiontree)**
-
-<!-- colend -->
-
-
-
-----
-## Building Decision Trees
-<!-- colstart -->
-<!-- small -->
-| Outlook | Temperature | Humidity | Windy | Play |
-| - | - | - | - | - |
-| overcast | hot  |  high   |  false |    yes |
-| overcast | hot  |  high   |  false |    no |
-| overcast | hot  |  high   |  false |    yes |
-| overcast | cool |  normal |  true |       yes |
-| overcast | mild |  high   |  true|     yes |
-| overcast | hot  |  normal |  false |   yes |
-| rainy    | mild |  high   |  false | yes |
-| rainy    | cool |  normal |  false | yes |
-| rainy    | cool |  normal |  true |  no |
-| rainy    | mild |  normal |  false | yes |
-| rainy    | mild |  high   |  true |no |
-| sunny    | hot  |  high   |  false |  no |
-| sunny    | hot  |  high   |  true | no |
-| sunny    | mild |  high   |false | no |
-| sunny    | cool |  normal |false |   yes |
-| sunny    | mild |  normal |  true |   yes |
-
-<!-- col -->
 
 * Identify all possible decisions
 * Select the decision that best splits the dataset into distinct outcomes (typically via entropy or similar measure)
 * Repeatedly further split subsets, until stopping criteria reached
 
-
-<!-- colend -->
-
-
-----
 ## Overfitting with Decision Trees
-<!-- colstart -->
-<!-- small -->
-| Outlook | Temperature | Humidity | Windy | Play |
-| - | - | - | - | - |
-| overcast | hot  |  high   |  false |    yes |
-| overcast | hot  |  high   |  false |    no |
-| overcast | hot  |  high   |  false |    yes |
-| overcast | cool |  normal |  true |       yes |
-| overcast | mild |  high   |  true|     yes |
-| overcast | hot  |  normal |  false |   yes |
-| rainy    | mild |  high   |  false | yes |
-| rainy    | cool |  normal |  false | yes |
-| rainy    | cool |  normal |  true |  no |
-| rainy    | mild |  normal |  false | yes |
-| rainy    | mild |  high   |  true |no |
-| sunny    | hot  |  high   |  false |  no |
-| sunny    | hot  |  high   |  true | no |
-| sunny    | mild |  high   |false | no |
-| sunny    | cool |  normal |false |   yes |
-| sunny    | mild |  normal |  true |   yes |
 
-<!-- col -->
 ```
 f(Outlook, Temperature, Humidity, Windy) = 
   IF Humidity ∈ [high] 
@@ -328,33 +177,8 @@ The tree perfectly fits the data, except on overcast, hot and humid days without
 
 Not obvious that this tree will generalize well.
 
-<!-- colend -->
-
-
-----
 ## Underfitting with Decision Trees
-<!-- colstart -->
-<!-- small -->
-| Outlook | Temperature | Humidity | Windy | Play |
-| - | - | - | - | - |
-| overcast | hot  |  high   |  false |    yes |
-| overcast | hot  |  high   |  false |    no |
-| overcast | hot  |  high   |  false |    yes |
-| overcast | cool |  normal |  true |       yes |
-| overcast | mild |  high   |  true|     yes |
-| overcast | hot  |  normal |  false |   yes |
-| rainy    | mild |  high   |  false | yes |
-| rainy    | cool |  normal |  false | yes |
-| rainy    | cool |  normal |  true |  no |
-| rainy    | mild |  normal |  false | yes |
-| rainy    | mild |  high   |  true |no |
-| sunny    | hot  |  high   |  false |  no |
-| sunny    | hot  |  high   |  true | no |
-| sunny    | mild |  high   |false | no |
-| sunny    | cool |  normal |false |   yes |
-| sunny    | mild |  normal |  true |   yes |
 
-<!-- col -->
 ```
 f(Outlook, Temperature, Humidity, Windy) = 
   IF Humidity ∈ [high] 
@@ -365,9 +189,7 @@ f(Outlook, Temperature, Humidity, Windy) =
 If the model can only learn a single decision, it picks the
 best fit, but does not have enough freedom to make good
 predictions.
-<!-- colend -->
 
-----
 ## Overfitting/Underfitting
 
 **Overfitting:** Model learned exactly for the input data, but does not generalize to unseen data (e.g., exact memorization)
@@ -376,7 +198,6 @@ predictions.
 
 Typically adjust degrees of freedom during model learning to balance between overfitting and underfitting: can better learn the training data with more freedom (more complex models); but with too much freedom, will memorize details of the training data rather than generalizing
 
-----
 ## On Terminology
 
 * The decisions in a model are called *model parameter* of the model 
@@ -396,8 +217,6 @@ def f(outlook, temperature, humidity, windy) =
       return B*temperature + C*windy > 10
 ```
 
-
-----
 ## Learning for House Price Analysis
 
 | Crime Rate | %Large Lots | %Industrial | Near River | # Rooms | ... | Price |
@@ -408,9 +227,6 @@ def f(outlook, temperature, humidity, windy) =
 | 0.032 | 0  | 2.1 | 0 | 6 | ... | 334.000 |
 | 0.069 | 0  | 2.1 | 0 | 7 | ... | 362.000 |
 
-
-
-----
 ## Improvements
 
 * Averaging across multiple trees (ensemble methods, including Boosting and Random forests) to avoid overfitting
@@ -778,3 +594,4 @@ Notes:
 * Basic model accuracy measures and crossvalidation
 * Steps of a machine learning pipeline
 * Introduction to working with computational notebooks, typical iterative workflow, benefits and limitations of notebooks
+

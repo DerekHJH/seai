@@ -1,26 +1,11 @@
 ---
-author: Christian Kaestner
-title: "17-445: Artificial Intelligence for Software Engineers 2"
-semester: Summer 2020
-footer: "17-445 Software Engineering for AI-Enabled Systems, Christian Kaestner"
-license: Creative Commons Attribution 4.0 International (CC BY 4.0)
----  
-
-# Artificial Intelligence for Software Engineers
-
 (Part 2: Deep Learning, Symbolic AI)
-
-Christian Kaestner
-
-<!-- references -->
 
 Required Reading: 🕮 Géron, Aurélien. ”[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019662775504436)”, 2nd Edition (2019), Ch 1.
 
 Recommended Readings:
 🕮 Géron, Aurélien. ”[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019662775504436)”, 2nd Edition (2019), Ch 10 ("Introduction to Artificial Neural Networks with Keras"),
 🕮 Flasiński, Mariusz. "[Introduction to Artificial Intelligence](https://doi.org/10.1007/978-3-319-40022-8)." Springer (2016), Chapter 1 ("History of Artificial Intelligence") and Chapter 2 ("Symbolic Artificial Intelligence"), 🕮 Pfeffer, Avi. "[Practical Probabilistic Programming](https://livebook.manning.com/book/practical-probabilistic-programming/chapter-1/)." Manning (2016), Chapter 1 or 🎬 Kevin Smith's recorded [tutorial on Probabilistic Programming](https://www.youtube.com/watch?v=9SEIYh5BCjc)
-
-
 ---
 
 # Learning goals
@@ -28,8 +13,6 @@ Recommended Readings:
 * Give an overview of different AI problems and approaches
 * Explain at high level how deep learning works 
 * Describe key characteristics of symbolic AI techniques and when to use them
-
----
 
 
 <svg version="1.1" viewBox="0.0 0.0 400 400" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
@@ -43,12 +26,8 @@ Recommended Readings:
         <text x=210 y=180 dominant-baseline="middle" text-anchor="middle">ML</text>
         <text x=270 y=280 dominant-baseline="middle" text-anchor="middle">DL</text>
 
-</svg>
-
-<!-- split -->
-
-<!-- small -->
 Artificial Intelligence: 
+
 > computers acting humanly / thinking humanly / thinking rationally / acting rationally -- [Russel and Norvig, 2003](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/1feg4j8/alma991019419529704436)
 
 Machine Learning:
@@ -606,13 +585,10 @@ Note: Discussed in tutorial: https://www.cra.com/sites/default/files/pdf/Figaro_
 
 Source: https://github.com/p2t2/figaro/blob/master/FigaroExamples/src/main/scala/com/cra/figaro/example/Smokers.scala
 
-----
 ## More Examples
 
 see [GitHub p2t2/figaro](https://github.com/p2t2/figaro/tree/master/FigaroExamples/src/main/scala/com/cra/figaro/example) and many other languages
 
-
-----
 ## Why Probabilistic Programming?
 
 * Reasoning about uncertainly, at scale (simulations)
@@ -622,7 +598,6 @@ see [GitHub p2t2/figaro](https://github.com/p2t2/figaro/tree/master/FigaroExampl
 *
 * Based on knowledge and logic
 
-----
 ## Probabilistic Inference
 
 Answering queries about probabilistic models
@@ -635,35 +610,23 @@ println("Probability of Alice smoking: " +
         alg.probability(alice.smokes, true))
 ```
 
-<!-- vspace -->
-
 * Analytical probabilistic reasoning (e.g., variable elimination Bayes' rule) -- precise result, guarantees
 * Approximation (e.g., belief propagation)
 * Sampling (e.g., Markov chain Monte Carlo) -- probabilistic guarantees
 
-
-----
 ## Example: Robot Path and Adaptation Planning
 
 ![Robot Path Map](robotmap.png)
-<!-- .element: class="stretch" -->
 
-(CC-BY-SA-3.0 [Sevard](https://commons.wikimedia.org/wiki/File:Robot_Skeleton.png))
 
-----
 ## Example: Robot Path and Adaptation Planning
-
-<!-- colstart -->
 ![Learning Models for Adaptations](brassmars.png)
-<!-- col -->
+
 ![MAPE-K](mapek.png)
-<!-- colend -->
 
 Notes:
 Examples from a recent research project to reason about adaptations in robots, e.g., change which hardware to use or which route to take. We learn energy models and other models from observations, from which we know multiple plausible configurations with different tradeoffs (and certainty). To chose an optimal configuration, a probabilistic planner is used to make decisions at runtime.
 
-
-----
 ## General Observations
 
 * Manually created models
@@ -673,43 +636,28 @@ Examples from a recent research project to reason about adaptations in robots, e
 * Inference is hard to scale
 * Recently, commonly combined with machine learning
 
-
----
 # Summary
 
-----
-
 ## Artificial Intelligence
-
-<!-- colstart -->
 
 * Acting humanly: Turing test approach, requires natural language processing, knowledge representation, automated reasoning, machine learning, maybe vision and robotics
 * Thinking humanly: mirroring human thinking, cognitive science
 * Thinking rationally: law of thoughts, logic, patterns and structures
 * Acting rationally: rational agents interacting with environments
 
-
-
-<!-- col -->
-
 * problem solving (e.g., search, constraint satisfaction)
 * knowledge, reasoning, planning (e.g., logic, knowledge representation, probabilistic reasoning)
 * learning (learning from examples, knowledge in learning, reinforcement learning)
 * communication, perceiving, and acting (NLP, vision, robotics)
 
-<!-- colend -->
 
-<!-- references -->
 Russel and Norvig. "[Artificial Intelligence: A Modern Approach](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/1feg4j8/alma991019419529704436).", 2003
 
-----
 ## Summary
 
 * Intuition behind deep learning (architecture, parameters, size, cost)
 * Symbolic and probabilistic reasoning may provide accurate answers (or time out)
 * Many different approaches, many combinations
-
-<!-- small -->
 
 Learn more:
 * 🎓 10-301/601 Introduction to Machine Learning (how machine learning techniques work)
@@ -718,4 +666,3 @@ Learn more:
 * 🕮 Russel and Norvig. "[Artificial Intelligence: A Modern Approach](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/1feg4j8/alma991019419529704436).", 2003
 * 🕮 Flasiński, Mariusz. "[Introduction to Artificial Intelligence](https://doi.org/10.1007/978-3-319-40022-8)." Springer (2016), Chapter 1 ("History of Artificial Intelligence") and Chapter 2 ("Symbolic Artificial Intelligence")
 * 🕮 Pfeffer, Avi. "[Practical Probabilistic Programming](https://livebook.manning.com/book/practical-probabilistic-programming/chapter-1/)." Manning (2016)
-
