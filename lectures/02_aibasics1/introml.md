@@ -1,31 +1,9 @@
 ---
-author: Christian Kaestner
-title: "17-445: Artificial Intelligence for Software Engineers 1"
-semester: Summer 2020
-footer: "17-445 Software Engineering for AI-Enabled Systems, Christian Kaestner"
-license: Creative Commons Attribution 4.0 International (CC BY 4.0)
----  
-
-# Artificial Intelligence for Software Engineers 
-
 (Part 1: Supervised Machine Learning and Notebooks)
-
-Christian Kaestner
-
-<!-- references -->
 
 Required Reading: 🕮 Hulten, Geoff. “[Building Intelligent Systems: A Guide to Machine Learning Engineering](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019649190004436).” (2018), Chapters 16–18, 20.
 
 Suggested complementary reading: 🕮 Géron, Aurélien. ”[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019662775504436)”, 2nd Edition (2019), Ch 1.
-
----
-
-# Disclaimer
-
-If you are familiar with supervised machine learning and have used notebooks and scikit-learn before for a class or project, you will probably not learn much new today. Sorry
-
-Next lecture deep learning and symbolic AI.
-
 ---
 
 # Learning goals
