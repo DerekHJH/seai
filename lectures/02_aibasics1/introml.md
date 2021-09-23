@@ -235,8 +235,6 @@ def f(outlook, temperature, humidity, windy) =
 + Better handling of numeric data
 + Extensions for graphs
 
-
-----
 ## Summary of Learning with Decision Trees
 
 * Learning function fitting the data
@@ -246,15 +244,13 @@ def f(outlook, temperature, humidity, windy) =
 * Resulting models easy to understand and interpret (up to a size), mirroing human decision making procedures
 * Scales fairly well to large datasets
 
-
-----
 ## On Specifications
 
 No specification given for `f(outlook, temperature, humidity, windy)` 
 
 Learning `f` from data!
 
-We do not expect perfect predictions; no possible model could always predict all training data correctly:
+We do not expect perfect predictions; no possible model could always predict all training data correctly:（同样的数据点，但是label不同）
 
 | Outlook | Temperature | Humidity | Windy | Play |
 | - | - | - | - | - |
@@ -265,15 +261,8 @@ We do not expect perfect predictions; no possible model could always predict all
 
 We are looking for models that *generalize well*
 
-
-
-
----
 # Evaluating Models (Supervised Learning)
 
-(more, much more on this later)
-
-----
 ## Basic Approach
 
 Given labeled data, how well can the function predict the outcome labels?
@@ -312,38 +301,23 @@ accuracy_valid = accuracy(model, valid_xs, valid_ys)
 
 $\textit{accuracy\_train} >> \textit{accuracy\_valid}$ = sign of overfitting
 
-----
 ## Running Example: House Price Analysis
 
 Given data about a house and its neighborhood, what is the likely sales price for this house?
 
 $f(size, rooms, tax, neighborhood, ...) \rightarrow price$
 
-
-![House for Sale](housesale.jpg)
-<!-- .element: class="stretch" -->
-
-
-----
 ## Detecting Overfitting
 
 Change hyperparameter to detect training accuracy (blue)/validation accuracy (red) at different degrees of freedom
 
-
 ![Overfitting example](overfitting-error.png)
-<!-- .element: class="stretch" -->
-
-
-(CC SA 3.0 by [Dake](https://commons.wikimedia.org/wiki/File:Overfitting.png))
-
-**[demo time](https://github.com/ckaestne/seai/tree/S2020/lectures/02_aibasics1/extras/decisiontree)**
 
 
 Notes: Overfitting is recognizable when performance of the evaluation set decreases.
 
 Demo: Show how trees at different depth first improve accuracy on both sets and at some point reduce validation accuracy with small improvements in training accuracy
 
-----
 ## Crossvalidation
 
 * Motivation
@@ -355,16 +329,8 @@ Demo: Show how trees at different depth first improve accuracy on both sets and 
   * k-fold: $k$ equal-sized partitions, evaluate on each training on others
   * repeated random sub-sampling (Monte Carlo)
 
-**[demo time](https://github.com/ckaestne/seai/tree/S2020/lectures/02_aibasics1/extras/decisiontree)**
-
 ![Visualization of K-Fold Crossvalidation](kfold.gif)
-<!-- .element: class="stretch" -->
 
-
-(Graphic CC [MBanuelos22](https://en.wikipedia.org/wiki/Cross-validation_(statistics)#/media/File:KfoldCV.gif)  BY-SA 4.0)
-
-
-----
 ## Separate Training, Validation and Test Data
 
 Often a model is "tuned" manually or automatically on a validation set (hyperparameter optimization)
@@ -388,49 +354,29 @@ for (hyperparameters in candidate_hyperparameters)
 accuracy_test = accuracy(model, test_xs, test_ys)
 ```
 
-----
 ## Academic Escalation: Overfitting on Benchmarks
 
-
 [![Overfitting Benchmarks](overfitting-benchmarks.png)](overfitting-benchmarks.png)
-<!-- .element: class="stretch" -->
-
-(Figure by Andrea Passerini)
 
 Note: If many researchers publish best results on the same benchmark, collectively they perform "hyperparameter optimization" on the test set
-
-
-
-
-
-
----
 
 # Machine Learning Pipeline
 
 ![Pipeline](pipeline.png)
 
-<!-- references -->
-
 Graphic: Amershi, Saleema, Andrew Begel, Christian Bird, Robert DeLine, Harald Gall, Ece Kamar, Nachiappan Nagappan, Besmira Nushi, and Thomas Zimmermann. "[Software engineering for machine learning: A case study](https://www.microsoft.com/en-us/research/uploads/prod/2019/03/amershi-icse-2019_Software_Engineering_for_Machine_Learning.pdf)." In 2019 IEEE/ACM 41st International Conference on Software Engineering: Software Engineering in Practice (ICSE-SEIP), pp. 291-300. IEEE, 2019.
 
 Notes: An average data scientist spends most of their time collecting and cleaning data.
 
-----
 ## Example
 
 ![Pipeline](pipeline.png)
 
 $f(size, rooms, tax, neighborhood, ...) \rightarrow price$
 
-![House for Sale](housesale.jpg)
-<!-- .element: class="stretch" -->
-
 
 Note: Go through all the pipeline steps and discuss how they might look like in this example. What data would be collected, what cleaning might be needed, how might data be labled, what features are selected?
 
-
-----
 ## Pipeline Steps
 
 * Data collection: identify training data, often many sources
@@ -439,12 +385,10 @@ Note: Go through all the pipeline steps and discuss how they might look like in 
 * Feature engineering: convert raw data into a form suitable for learning, identifying features, encoding, normalizing
 * Model training: build the model, tune hyperparameters
 * Model evaluation: determine fitness for purpose
-*
 * Data science education focuses on feature engineering and model training
 * Data science practitioners spend substantial time collecting and cleaning data
 * Requirements, deployment, and monitoring rarely a focus in data science education
 
-----
 ## Common Challenges
 
 * Insufficient Quantity of Training Data
@@ -454,42 +398,25 @@ Note: Go through all the pipeline steps and discuss how they might look like in 
 * Overfitting, Underfitting
 * Data + Model Match
 
-<!-- references -->
-
 Suggested complementary reading: 🕮 Géron, Aurélien. ”[Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019662775504436)”, 2nd Edition (2019), Ch 1.
 
-
-
----
 # Iteration and Exploration with Computational Notebooks
 
-----
 ## Data Science is Iterative and Exploratory
 
 ![Data Science Workflow](data-science-process.jpg)
-<!-- .element: class="stretch" -->
 
 (Source: Guo. "[Data Science Workflow: Overview and Challenges](https://cacm.acm.org/blogs/blog-cacm/169199-data-science-workflow-overview-and-challenges/fulltext)." Blog@CACM, Oct 2013)
 
-
-----
 ## Data Science is Iterative and Exploratory
 
 [![Data Science Lifecycle](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/media/overview/tdsp-lifecycle2.png)](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/media/overview/tdsp-lifecycle2.png)
-<!-- .element: class="stretch" -->
 
 (Microsoft Azure Team, "[What is the Team Data Science Process?](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview)" Microsoft Documentation, Jan 2020)
 
-
-----
 ## Similar to Spiral Process Model or Agile? 
-
-<!-- colstart -->
 ![Spiral Model](spiral_model.svg)
-<!-- col -->
 ![Scrum Process](scrum.svg)
-(CC BY-SA 4.0, [Lakeworks](https://en.wikipedia.org/wiki/Scrum_(software_development)#/media/File:Scrum_process.svg))
-<!-- colend -->
 
 Note: There is similarity in that there is an iterative process, 
 but the idea is different and the process model seems mostly orthogonal
@@ -503,12 +430,9 @@ to be a rather orthogonal concern. Requirements on the product are not so
 much unclear or changing (the goal is often clear), but it's not clear
 whether and how a model can solve it.
 
-
-----
 ## Data Science is Iterative and Exploratory
 
 [![Experimental results showing incremental accuracy improvement](accuracy-improvements.png)](accuracy-improvements.png)
-<!-- .element: class="stretch" -->
 
 
 Source: Patel, Kayur, James Fogarty, James A. Landay, and Beverly Harrison. "[Investigating statistical machine learning as a tool for software development](http://www.kayur.org/papers/chi2008.pdf)." In Proc. CHI, 2008.
@@ -516,36 +440,21 @@ Source: Patel, Kayur, James Fogarty, James A. Landay, and Beverly Harrison. "[In
 Notes:
 This figure shows the result from a controlled experiment in which participants had 2 sessions of 2h each to build a model. Whenever the participants evaluated a model in the process, the accuracy is recorded. These plots show the accuracy improvements over time, showing how data scientists make incremental improvements through frequent iteration.
 
-
-
-----
 ## Data Science is Iterative and Exploratory
 * Science mindset: start with rough goal, no clear specification, unclear whether possible
 * Heuristics and experience to guide the process
 * Try and error, refine iteratively, hypothesis testing
 * Go back to data collection and cleaning if needed, revise goals
 
-----
 ## Exploration and Iteration in the Running Example
 
 Given data about a house and its neighborhood, what is the likely sales price for this house?
 
 $f(size, rooms, tax, neighborhood, ...) \rightarrow price$
 
-
-![House for Sale](housesale.jpg)
-<!-- .element: class="stretch" -->
-
-
-----
 ## Share Experience?
 
-<!-- discussion -->
-
-----
 ## Computational Notebooks
-
-<!-- colstart -->
 
 * Origins in "literal programming", interleaving text and code, treating programs as literature (Knuth'84)
 * First notebook in Wolfram Mathematica 1.0 in 1988
@@ -553,20 +462,12 @@ $f(size, rooms, tax, neighborhood, ...) \rightarrow price$
 * Code of cells is executed, per cell, in a kernel
 * Many notebook implementations and supported languages, Python + Jupyter currently most popular
 
-**demo time**
-
-<!-- col -->
-
 ![Notebook example](notebook-example.png)
-
-
-<!-- colend -->
 
 Notes:
 * See also https://en.wikipedia.org/wiki/Literate_programming
 * Demo with public notebook, e.g., https://colab.research.google.com/notebooks/mlcc/intro_to_pandas.ipynb
 
-----
 ## Notebooks Support Iteration and Exploration
 
 * Quick feedback, similar to REPL
@@ -575,17 +476,8 @@ Notes:
 * Quick and easy: copy paste, no abstraction needed
 * Easy to share: document includes text, code, and results
 
-----
 ## Brief Discussion: Notebook Limitations and Drawbacks?
 
-<!-- discussion -->
-
-(later more)
-
-
-
-
----
 # Summary
 
 * Key concepts in machine learning: dataframes, model, train/validation/test data
@@ -594,4 +486,3 @@ Notes:
 * Basic model accuracy measures and crossvalidation
 * Steps of a machine learning pipeline
 * Introduction to working with computational notebooks, typical iterative workflow, benefits and limitations of notebooks
-
