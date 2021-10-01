@@ -1,22 +1,8 @@
----
-author: Christian Kaestner
-title: "17-445: Model Quality"
-semester: Summer 2020
-footer: "17-445 Software Engineering for AI-Enabled Systems, Christian Kaestner"
-license: Creative Commons Attribution 4.0 International (CC BY 4.0)
----
-
 # Model Quality
-
-Christian Kaestner
-
-<!-- references -->
 
 Required reading: 
 * 🕮 Hulten, Geoff. "[Building Intelligent Systems: A Guide to Machine Learning Engineering.](https://www.buildingintelligentsystems.com/)" Apress, 2018, Chapter 19 (Evaluating Intelligence).
 * 🗎 Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. "[Semantically equivalent adversarial rules for debugging NLP models](https://www.aclweb.org/anthology/P18-1079.pdf)." In Proceedings of the 56th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers), pp. 856-865. 2018.
-
----
 
 # Learning Goals
 
@@ -27,30 +13,22 @@ Required reading:
 * Use invariants to check partial model properties with automated testing
 * Develop automated infrastructure to evaluate and monitor model quality
 
----
 # This lecture
 
 ## First Part: Measuring Prediction Accuracy
 
 the data scientist's perspective
 
-
 ## Second Part: Learning from Software Testing
 
 how software engineering tools may apply to ML
-
-
----
 
 > "Programs which were written in order to determine the
 answer in the first place. There would be no need to write such programs, if the
 correct answer were known” (Weyuker, 1982).
 
-
----
 # Model Quality vs System Quality
 
-----
 ## Prediction Accuracy of a Model
 
 *model:* $\overline{X} \rightarrow Y$
@@ -59,7 +37,6 @@ correct answer were known” (Weyuker, 1982).
 
 For our discussion: any form of model, including machine learning models, symbolic AI components, hardcoded heuristics, composed models, ...
 
-----
 ## ML Algorithm Quality vs Model Quality vs Data Quality vs System Quality
 
 Todays focus is on the quality of the produced *model*, not the algorithm used to learn the model or the data used to train the model
@@ -277,14 +254,14 @@ Measuring success of correct classifications (or missing results):
 * False negative rate = FN/(TP+FN) = 1 - recall 
     * aka miss rate; *lower is better*
 
-*** 
+***
 
 Measuring rate of false classifications (or noise):
 * Precision = TP/(TP+FP)
     * aka positive predictive value; *higher is better*
 * False positive rate = FP/(FP+TN) 
     * aka fall-out; *lower is better*
-<!-- * False discovery rate = FP/(FP+TP) = 1 - precision -->
+    <!-- * False discovery rate = FP/(FP+TP) = 1 - precision -->
 
 ***
 
@@ -326,7 +303,7 @@ No answer vs wrong answer?
     - 0% false negative rate (does not miss any cancer cases)
     - low precision (also reports cancer for all noncancer cases)
     - 100% false positive rate (all noncancer cases reported as warnings)
- 
+
 ----
 ## Consider the Baseline Probability
 
@@ -1074,7 +1051,7 @@ Singh, Gagandeep, Timon Gehr, Markus Püschel, and Martin Vechev. "[An abstract 
 * Quality depends on quality of the simulator and how well it can produce inputs from outputs: 
     * examples: render picture/video, synthesize speech, ... 
     * Less suitable where input-output relationship unknown, e.g., cancer detection, housing price prediction, shopping recommendations
-<!-- col -->
+    <!-- col -->
 ```mermaid
 graph TD;
     output -->|simulation| input
