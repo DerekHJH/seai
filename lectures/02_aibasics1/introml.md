@@ -368,15 +368,6 @@ Graphic: Amershi, Saleema, Andrew Begel, Christian Bird, Robert DeLine, Harald G
 
 Notes: An average data scientist spends most of their time collecting and cleaning data.
 
-## Example
-
-![Pipeline](pipeline.png)
-
-$f(size, rooms, tax, neighborhood, ...) \rightarrow price$
-
-
-Note: Go through all the pipeline steps and discuss how they might look like in this example. What data would be collected, what cleaning might be needed, how might data be labled, what features are selected?
-
 ## Pipeline Steps
 
 * Data collection: identify training data, often many sources
@@ -414,21 +405,14 @@ Suggested complementary reading: 🕮 Géron, Aurélien. ”[Hands-On Machine Le
 
 (Microsoft Azure Team, "[What is the Team Data Science Process?](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview)" Microsoft Documentation, Jan 2020)
 
-## Similar to Spiral Process Model or Agile? 
+## Similar to Spiral Process Model or Agile?
+
+并不相似，比如Agile需要不断的迭代，每一次迭代都需要和客户交流。但是build model不一样，每一次迭代只需要靠自己的经验和智慧，把accuracy做到更好更好。
+
 ![Spiral Model](spiral_model.svg)
 ![Scrum Process](scrum.svg)
 
-Note: There is similarity in that there is an iterative process, 
-but the idea is different and the process model seems mostly orthogonal
-to iteration in data science.
-The spiral model prioritizes risk, especially when it is not clear
-whether a model is feasible. One can do similar things in model development, seeing whether it is feasible with data at hand at all and build an early
-prototype, but it is not clear that an initial okay model can be improved
-incrementally into a great one later.
-Agile can work with vague and changing requirements, but that again seems
-to be a rather orthogonal concern. Requirements on the product are not so
-much unclear or changing (the goal is often clear), but it's not clear
-whether and how a model can solve it.
+Note: There is similarity in that there is an iterative process, but the idea is different and the process model seems mostly orthogonal to iteration in data science. The spiral model prioritizes risk, especially when it is not clear whether a model is feasible. One can do similar things in model development, seeing whether it is feasible with data at hand at all and build an early prototype, but it is not clear that an initial okay model can be improved incrementally into a great one later. Agile can work with vague and changing requirements, but that again seems to be a rather orthogonal concern. Requirements on the product are not so much unclear or changing (the goal is often clear), but it's not clear whether and how a model can solve it.
 
 ## Data Science is Iterative and Exploratory
 
@@ -445,14 +429,6 @@ This figure shows the result from a controlled experiment in which participants 
 * Heuristics and experience to guide the process
 * Try and error, refine iteratively, hypothesis testing
 * Go back to data collection and cleaning if needed, revise goals
-
-## Exploration and Iteration in the Running Example
-
-Given data about a house and its neighborhood, what is the likely sales price for this house?
-
-$f(size, rooms, tax, neighborhood, ...) \rightarrow price$
-
-## Share Experience?
 
 ## Computational Notebooks
 
@@ -477,6 +453,20 @@ Notes:
 * Easy to share: document includes text, code, and results
 
 ## Brief Discussion: Notebook Limitations and Drawbacks?
+
+不方便调试，大工程需要抽象，很难转变成大工程。
+
+只能用于解释型语言，编译型语言必须一次性编译完所有的源码。（当然其实scala也可以）
+
+都是全局状态。
+
+没有抽象，封装的概念。
+
+总的来说就是一个冗长的超大型程序。
+
+没有人去测试notebook里面的代码。
+
+如果要写long time maintainable code，就不能使用notebook了，但是notebook确实支持explore。
 
 # Summary
 
