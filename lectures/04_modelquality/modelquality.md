@@ -47,15 +47,10 @@ The model is just one component of the entire system.
 
 Focus on measuring quality, not debugging the source of quality problems (e.g., in data, in feature extraction, in learning, in infrastructure)
 
-----
 ## Case Study: Cancer Detection
 
 ![MRI](mri.jpg)
-<!-- .element: class="stretch" -->
 
-Notes: Application to be used in hospitals to screen for cancer, both as routine preventative measure and in cases of specific suspicions. Supposed to work together with physicians, not replace.
-
-----
 ## The Systems Perspective
 
 System is more than the model
@@ -72,12 +67,9 @@ Models can help or may be essential in those goals, but are only one part
 
 *Today: Narrow focus on prediction accuracy of the model*
 
-
-----
 ## Cancer Prediction within A Healthcare Application
 
 ![Gnu Health Screenshot](gnuhealth.png)
-<!-- .element: class="stretch" -->
 
 
 (CC BY-SA 4.0, [Martin Sauter](https://commons.wikimedia.org/wiki/Category:GNU_Health#/media/File:Gnu_health_2-8_gynocology_general.png))
@@ -96,10 +88,8 @@ But many other quality matters when building a system:
 * Safety, security, fairness, privacy
 * Explainability
 
-
 *Today: Narrow focus on prediction accuracy of the model*
 
-----
 ## Comparing Models
 
 Compare two models (same or different implementation/learning technology) for the same task:
@@ -110,7 +100,6 @@ Compare two models (same or different implementation/learning technology) for th
 * Which one is better overall?
 * Is either one good enough?
 
-----
 ## On Terminology: Performance
 
 In machine learning, "performance" typically refers to accuracy
@@ -121,24 +110,10 @@ Be aware of ambiguity across communities.
 
 When speaking of "time", be explicit: "learning time", "inference time", "latency", ...
 
-(see also: performance in arts, job performance, company performance, performance test (bar exam) in law, software/hardware/network performance)
-
-
-
-
-
-
-
-
-
-
-
----
 # Measuring Prediction Accuracy for Classification Tasks
 
 (The Data Scientists Toolbox)
 
-----
 ## Confusion/Error Matrix
 
 | | **Actually A** | **Actually B** | **Actually C** |
@@ -153,7 +128,7 @@ Example's accuracy
         = $\frac{10+24+82}{10+6+2+3+24+10+5+22+82} = .707$
 
 ----
-## Is 99% Accuracy good?
+## Is 99% Accuracy good?（detecting HIV）
 
 -> depends on problem; can be excellent, good, mediocre, terrible
 
@@ -167,208 +142,12 @@ $\frac{(1 - accuracy\_\text{baseline}) - (1 - accuracy\_f)}{1 - accuracy\_\text{
 * from 99.9% to 99.99% accuracy = 90% reduction in error
 * from 50% to 75% accuracy = 50% reduction in error
 
-----
 ## Baselines?
 
 Suitable baselines for cancer prediction? For recidivism?
 
-<!-- discussion -->
-
 Note: Many forms of baseline possible, many obvious: Random, all true, all false, repeat last observation, simple heuristics, simpler model
 
-----
-## Types of Mistakes
-
-Two-class problem of predicting event A:
-
-
-| | **Actually A** | **Actually not A** |
-| --- | --- | --- |
-|**AI predicts A** | True Positive (TP) | False Positive (FP) |
-|**AI predicts not A** | False Negative (FN) | True Negative (TN) |
-
-True positives and true negatives: correct prediction
-
-False negatives: wrong prediction, miss, Type II error
-
-False positives: wrong prediction, false alarm, Type I error
-
- 
-
-----
-## Multi-Class problems vs Two-Class Problem
-
-| | **Actually A** | **Actually B** | **Actually C** |
-| :--- | --- | --- | --- |
-|**AI predicts A** | **10** | 6 | 2 |
-|**AI predicts B** | 3 | **24**  | 10 |
-|**AI predicts C** | 5 | 22 | **82** |
-
-
-
-
-----
-## Multi-Class problems vs Two-Class Problem
-
-| | **Actually A** | **Actually B** | **Actually C** |
-| :--- | --- | --- | --- |
-|**AI predicts A** | **10** | 6 | 2 |
-|**AI predicts B** | 3 | **24**  | 10 |
-|**AI predicts C** | 5 | 22 | **82** |
-
-****
-
-<!-- colstart -->
-
-| | **Act. A** | **Act. not A** |
-| --- | --- | --- |
-|**AI predicts A** | 10 | 8 |
-|**AI predicts not A** | 8 | 138 |
-
-<!-- col -->
-
-| | **Act. B** | **Act. not B** |
-| --- | --- | --- |
-|**AI predicts B** | 24 | 13 |
-|**AI predicts not B** | 28 | 99 |
-
-<!-- colend -->
-
-Notes: Individual false positive/negative classifications can be derived
-by focusing on a single value in a confusion matrix. False positives/recall/etc are always considered with regard to a single specific outcome.
-
-
-----
-## Types of Mistakes in Identifying Cancer?
-
-![MRI](mri.jpg)
-<!-- .element: class="stretch" -->
-
-
-----
-## Measures
-
-Measuring success of correct classifications (or missing results):
-* Recall = TP/(TP+FN) 
-    * aka true positive rate, hit rate, sensitivity; *higher is better*
-* False negative rate = FN/(TP+FN) = 1 - recall 
-    * aka miss rate; *lower is better*
-
-***
-
-Measuring rate of false classifications (or noise):
-* Precision = TP/(TP+FP)
-    * aka positive predictive value; *higher is better*
-* False positive rate = FP/(FP+TN) 
-    * aka fall-out; *lower is better*
-    <!-- * False discovery rate = FP/(FP+TP) = 1 - precision -->
-
-***
-
-Combined measure (harmonic mean):
-
-F1 score = $2 \frac{recall*precision}{recall+precision}$
-
-----
-
-[![Recall/Precision visualization](recallprecision.png)](https://en.wikipedia.org/wiki/Precision_and_recall#/media/File:Precisionrecall.svg)
-<!-- .element: class="stretch" -->
-
-
-(CC BY-SA 4.0 by [Walber](https://en.wikipedia.org/wiki/Precision_and_recall#/media/File:Precisionrecall.svg))
-
-----
-## False positives and false negatives equally bad? 
-
-Consider: 
-* Recognizing cancer 
-* Suggesting products to buy on e-commerce site
-* Identifying human trafficking at the border
-* Predicting high demand for ride sharing services
-* Predicting recidivism chance
-* Approving loan applications
-
-No answer vs wrong answer?
-
-----
-## Extreme Classifiers
-
-* Identifies every instance as negative (e.g., no cancer):
-    - 0% recall (finds none of the cancer cases)
-    - 100% false negative rate (misses all actual cancer cases)
-    - undefined precision (no false predictions, but no predictions at all)
-    - 0% false positive rate (never reports false cancer warnings)
-* Identifies every instance as positive (e.g., has cancer):
-    - 100% recall (finds all instances of cancer)
-    - 0% false negative rate (does not miss any cancer cases)
-    - low precision (also reports cancer for all noncancer cases)
-    - 100% false positive rate (all noncancer cases reported as warnings)
-
-----
-## Consider the Baseline Probability
-
-Predicting unlikely events -- 1 in 2000 has cancer ([stats](https://gis.cdc.gov/Cancer/USCS/DataViz.html))
-
-<!-- colstart -->
-
-**Random predictor**
-
-| | **Cancer** | **No c.** |
-| --- | --- | --- |
-|**Cancer pred.** | 3 | 4998 |
-|**No cancer pred.** | 2 | 4997 |
-
-.5 accuracy, .6 recall, 0.001 precision
-
-<!-- col -->
-
-**Never cancer predictor**
-
-
-| | **Cancer** | **No c.** |
-| --- | --- | --- |
-|**Cancer pred.** | 0 | 0 |
-|**No cancer pred.** | 5 | 9995 |
-
-.999 accuracy, 0 recall, .999 precision
-
-
-<!-- colend -->
-
-See also [Bayesian statistics](https://en.wikipedia.org/wiki/Bayesian_statistics)
-
-
-----
-## Thresholds
-
-Many classification models produce a number (e.g., "chance of cancer"), need *threshold* to make decision
-
-| | **Act. A** | **Act. not A** |
-| --- | --- | --- |
-|**AI predicts A** | 10 | 8 |
-|**AI predicts not A** | 8 | 138 |
-
-Thresholds affects how data is sorted into rows!
-
-----
-## Area Under the Curve
-
-Turning numeric prediction into classification with threshold ("operating point")
-
-![Recall/Precision Plot](prcurve.png)
-
-Notes: The plot shows the recall precision/tradeoff at different thresholds (the thresholds are not shown explicitly). Curves closer to the top-right corner are better considering all possible thresholds. Typically, the area under the curve is measured to have a single number for comparison.
-
-----
-## Receiver operating characteristic (ROC) curves
-
-![ROC Curve](roccurve.png)
-
-(CC BY-SA 3.0 by [BOR](https://en.wikipedia.org/wiki/Receiver_operating_characteristic#/media/File:Roccurves.png))
-
-Notes: Same concept, but plotting TPR (recall) against FPR rather than precision. Graphs closer to the top-left corner are better. Again, the area under the (ROC) curve can be measured to get a single number for comparison.
-
-----
 ## More Accuracy Measures for Classification Problems
 
 * Lift
@@ -377,9 +156,6 @@ Notes: Same concept, but plotting TPR (recall) against FPR rather than precision
 * Log loss (for class probabilities)
 * Cohen's kappa, Gini coefficient (improvement over random)
 
-
-
----
 # Measuring Prediction Accuracy for Regression and Ranking Tasks
 
 (The Data Scientists Toolbox)
@@ -395,30 +171,11 @@ Notes: Same concept, but plotting TPR (recall) against FPR rather than precision
 | 2 | .03 | ... | 210k | 211k |
 | 2 | .02 | ... | 219k | 210k |
 
-
-Note: Confusion Matrix does not work, need a different way of measuring accuracy that can distinguish "pretty good" from "far off" predictions 
-
-----
 ## Regression to Classification
-
-| Rooms | Crime Rate | ... | Predicted Price | Actual Price |
-| - | - | - | - | - | 
-| 3 | .01 | ... | 230k | 250k |
-| 4 | .01 | ... | 530k | 498k |
-| 2 | .03 | ... | 210k | 211k |
-| 2 | .02 | ... | 219k | 210k |
-
-<!-- vspace -->
-
-Was the price below 300k?
 
 Which price range is it in: [0-100k], [100k-200k], [200k-300k], ...
 
-
-----
 ## Comparing Predicted and Expected Outcomes
-
-<!-- colstart -->
 
 Mean Absolute Percentage Error
 
@@ -430,8 +187,6 @@ $\frac{1}{n}\sum_{t=1}^{n}\left|\frac{A_t-F_t}{A_t}\right|$
 
 Compute relative prediction error per row, average over all rows
 
-<!-- col -->
-
 | Rooms | Crime Rate | ... | Predicted Price | Actual Price |
 | - | - | - | - | - | 
 | 3 | .01 | ... | 230k | 250k |
@@ -442,23 +197,16 @@ Compute relative prediction error per row, average over all rows
 MAPE = $\frac{1}{4}\left( 20/250 + 32/498 + 1/211 + 9/210  \right)$
 = $\frac{1}{4}\left(0.08 + 0.064 + 0.005 + 0.043\right)$ = $0.048$
 
-<!-- colend -->
-
-----
 ## Again: Compare Against Baselines
 
 Accuracy measures in isolation are difficult to interpret
 
 Report baseline results, reduction in error
 
-----
 ## Baselines for Regression Problems
 
 Baselines for house price prediction?
 
-<!-- discussion -->
-
-----
 ## Other Measures for Regression Models
 
 
@@ -468,21 +216,18 @@ Baselines for house price prediction?
 * $R^2$ = percentage of variance explained by model
 * ...
 
-----
 ## Evaluating Rankings
 
 Ordered list of results, true results should be ranked high
 
 Common in information retrieval (e.g., search engines) and recommendations
 
-<!-- colstart -->
 Mean Average Precision 
 
 MAP@K = precision in first $K$ results
 
 Averaged over many queries
 
-<!-- col -->
 | Rank | Product | Correct? |
 | - | - | - |
 |1 | Juggling clubs | true |
@@ -496,12 +241,9 @@ MAP@1 = 1,
 MAP@2 = 0.5,
 MAP@3 = 0.33,
 ...
-<!-- colend -->
 
 **Remember to compare against baselines!** Baseline for shopping recommendations?
 
-
-----
 ## Other Ranking Measures
 
 * Mean Reciprocal Rank (MRR) (average rank for first correct prediction)
@@ -514,8 +256,6 @@ MAP@3 = 0.33,
 
 Note: Good discussion of tradeoffs at https://medium.com/swlh/rank-aware-recsys-evaluation-metrics-5191bba16832
 
-
-----
 ## Model Quality in Natural Language Processing?
 
 Highly problem dependent:
@@ -524,22 +264,15 @@ Highly problem dependent:
 * Translation and summarization -> comparing sequences (e.g ngrams) to human results with specialized metrics, e.g. [BLEU](https://en.wikipedia.org/wiki/BLEU) and [ROUGE](https://en.wikipedia.org/wiki/ROUGE_(metric))
 * Modeling text -> how well its probabilities match actual text, e.g., likelyhoold or [perplexity](https://en.wikipedia.org/wiki/Perplexity)
 
-
-
-
-
----
 # Analogy to Software Testing
 
 (this gets messy)
 
-
-----
 ## Software Testing
 
 * Program *p* with specification *s*
 * Test consists of
-    - Controlled environment
+    - Controlled environment （e.g. cloud service）
     - Test call, test inputs
     - Expected behavior/output (oracle)
 
@@ -551,7 +284,6 @@ assertEquals(??, factorPrime(15485863));
 Testing is complete but unsound: 
 Cannot guarantee the absence of bugs
 
-----
 ## Software Testing
 
 > "Testing shows the presence, not the absence of bugs" -- Edsger W. Dijkstra 1969
@@ -565,18 +297,14 @@ Software testing can be applied to many qualities:
 * Hardware errors
 * API usage errors
 
-----
-## Model Testing? 
+## Model Testing?
 
-<!-- colstart -->
 | Rooms | Crime Rate | ... | Actual Price |
 | - | - | - | - | 
 | 3 | .01 | ... | 250k |
 | 4 | .01 | ... |  498k |
 | 2 | .03 | ... |  211k |
 | 2 | .02 | ... |  210k |
-
-<!-- col -->
 
 ```java
 assertEquals(250000, 
@@ -588,15 +316,8 @@ assertEquals(211000,
 assertEquals(210000, 
     model.predict([2, .02, ...]));
 ```
-<!-- colend -->
-
-<!-- vspace -->
-
 Fail the entire test suite for one wrong prediction?
 
-<!-- discussion -->
-
-----
 ## The Oracle Problem
 
 *How do we know the expected output of a test?*
@@ -606,13 +327,12 @@ assertEquals(??, factorPrime(15485863));
 ```
 
 * Manually construct input-output pairs (does not scale, cannot automate)
-* Comparison against gold standard (e.g., alternative implementation, executable specification)
+* Comparison against gold standard (e.g., alternative implementation, executable specification)(机器学习任务里面没有)
 * Checking of global properties only -- crashes, buffer overflows, code injections
 * Manually written assertions -- partial specifications checked at runtime
 
 ![Solving the Oracle Problem with Gold Standard or Assertions](oracle.svg)
 
-----
 ## Automated Testing / Test Case Generation
 
 * Many techniques to generate test cases
@@ -624,16 +344,12 @@ assertEquals(??, factorPrime(15485863));
 
 * Typically looking for crashing bugs or assertion violations
 
-----
 ## Is Labeled Validation Data Solving the Oracle Problem?
 
 ```java
 assertEquals(250000, model.predict([3, .01, ...]));
 assertEquals(498000, model.predict([4, .01, ...]));
 ```
-<!-- discussion -->
-
-----
 ## Different Expectations for Prediction Accuracy
 
 * Not expecting that all predictions will be correct (80% accuracy may be very good)
@@ -643,13 +359,7 @@ assertEquals(498000, model.predict([4, .01, ...]));
 * **Lack of specifications** 
 * **A wrong prediction is not necessarily a bug**
 
-----
-## Analogy of Performance Testing?
-
-<!-- discussion -->
-
-----
-## Analogy of Performance Testing?
+## Analogy of Performance Testing?（这个比喻可能更贴切一些）
 
 * Performance tests are not precise (measurement noise)
     * Averaging over repeated executions *of the same test*
@@ -668,33 +378,26 @@ public void testCompute() {
 }
 ```
 
-
-
-
-
----
 # Machine Learning is Requirements Engineering
 
 (my pet theory)
-
-<!-- references -->
 see also https://medium.com/@ckaestne/machine-learning-is-requirements-engineering-8957aee55ef4
 
-----
 ## Validation vs Verification
 
 ![Validation vs Verification](validation.png)
-<!-- .element: class="stretch" -->
+Have we implemented the right system or have we implemented the system right.
 
-----
 ## Validation vs Verification
 
 ![Machine Learning Validation vs Verification](mlvalidation.png)
 
-
 Note: see explanation at https://medium.com/@ckaestne/machine-learning-is-requirements-engineering-8957aee55ef4
 
-----
+Machine learning model is equivalent to specification.
+
+Data is somewhat like customers.
+
 ## Example and Discussion
 
 ```
@@ -716,7 +419,6 @@ Implementation is trivial/automatically generated
 
 **What if we cannot understand the model?** (interpretability)
 
-----
 ## Terminology Suggestions
 
 * Avoid term *model bug*, no agreement, no standardization
@@ -724,12 +426,6 @@ Implementation is trivial/automatically generated
 * Careful with the term *testing* for measuring *prediction accuracy*, be aware of different connotations
 * *Verification/validation* analogy may help frame thinking, but will likely be confusing to most without longer explanation
 
-
-
-
-
-
----
 # Curating Validation Data
 
 (Learning from Software Testing?)
@@ -749,16 +445,11 @@ Implementation is trivial/automatically generated
     - Reserve 1000s recent data points for evaluation (or 10%, whichever is more)
     - Reserve 100s for important subpopulations
 
-----
 ## Software Testing Analogy: Test Adequacy
 
 ![Line coverage report](coverage.png)
-<!-- .element: class="stretch" -->
 
-----
 ## Software Testing Analogy: Test Adequacy
-
-
 
 * Specification coverage (e.g., use cases, boundary conditions):
     - No specification!
@@ -774,18 +465,12 @@ Implementation is trivial/automatically generated
 
 **Does any of this make sense?**
 
-<!-- discussion -->
-
-
-----
 ## Validation Data Representative?
 
 * Validation data should reflect usage data
 * Be aware of data drift (face recognition during pandemic, new patterns in credit card fraud detection)
 * "*Out of distribution*" predictions often low quality (it may even be worth to detect out of distribution data in production, more later)
 
-
-----
 ## Independence of Data: Temporal
 
 > Attempt to predict the stock price development for different companies based on twitter posts
@@ -794,21 +479,14 @@ Data: stock prices of 1000 companies over 4 years and twitter mentions of those 
 
 Problems of random train--validation split?
 
-<!-- discussion -->
-
 Note: The model will be evaluated on past stock prices knowing the future prices of the companies in the training set. Even if we split by companies, we could observe general future trends in the economy during training
 
-
-----
 ## Independence of Data: Temporal
 
 ![Temporal dependence](temporaldependence.svg)
-<!-- .element: class="stretch" -->
 
 Note: The curve is the real trend, red points are training data, green points are validation data. If validation data is randomly selected, it is much easier to predict, because the trends around it are known.
 
-
-----
 ## Independence of Data: Related Datapoints
 
 > Kaggle competition on detecting distracted drivers
@@ -817,35 +495,27 @@ Note: The curve is the real trend, red points are training data, green points ar
 
 Relation of datapoints may not be in the data (e.g., driver)
 
-<!-- references -->
-
 https://www.fast.ai/2017/11/13/validation-sets/
 
 Note: 
 Many potential subtle and less subtle problems:
+
 * Sales from same user
 * Pictures taken on same day
 
-----
 ## Not All Inputs are Equal
 
 ![Google Home](googlehome.jpg)
-<!-- .element: class="stretch" -->
 
 "Call mom"
 "What's the weather tomorrow?"
-"Add asafetida to my shopping list"
+"Add asafetida to my shopping list"(这些input太常见了，必须保证正确，当然也有一些不常见的input也很重要，总之需要一些weighted accuracy计算)
 
-----
 ## Not All Inputs are Equal
 
 > There Is a Racial Divide in Speech-Recognition Systems, Researchers Say:
 > Technology from Amazon, Apple, Google, IBM and Microsoft misidentified 35 percent of words from people who were black. White people fared much better. -- [NYTimes March 2020](https://www.nytimes.com/2020/03/23/technology/speech-recognition-bias-apple-amazon-google.html)
 
-----
-<div class="tweet" data-src="https://twitter.com/nke_ise/status/897756900753891328"></div>
-
-----
 ## Not All Inputs are Equal
 
 > some random mistakes vs rare but biased mistakes?
@@ -853,12 +523,8 @@ Many potential subtle and less subtle problems:
 * A system to detect when somebody is at the door that never works for people under 5ft (1.52m)
 * A spam filter that deletes alerts from banks
 
+**Consider separate evaluations for important subpopulations; monitor mistakes in production**（比如让1000个人用不同的口音说call mom来测试。）
 
-**Consider separate evaluations for important subpopulations; monitor mistakes in production**
-
-
-
-----
 ## Identify Important Inputs
 
 Curate Validation Data for Specific Problems and Subpopulations:
@@ -868,13 +534,8 @@ Curate Validation Data for Specific Problems and Subpopulations:
 
 Derive from requirements, experts, user feedback, expected problems etc. Think *blackbox testing*.
 
-
-----
 ## Important Input Groups for Cancer Detection?
 
-<!-- discussion -->
-
-----
 ## Black-Box Testing Techniques as Inspiration?
 
 * Boundary value analysis
@@ -884,24 +545,10 @@ Derive from requirements, experts, user feedback, expected problems etc. Think *
 
 Use to identify subpopulations (validation datasets), not individual tests.
 
-<!-- discussion -->
-
-
-
-
-
-
-
-
-
-
----
 # Automated (Random) Testing
 
 (if it wasn't for that darn oracle problem)
 
-
-----
 ## Recall: Automated Testing / Test Case Generation
 
 * Many techniques to generate test cases
