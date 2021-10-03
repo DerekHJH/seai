@@ -1,9 +1,6 @@
 ---
-# From Models to AI-Enabled Systems
-
 * 🕮 Hulten, Geoff. "Building Intelligent Systems: A Guide to Machine Learning Engineering." (2018), Chapters 5 (Components of Intelligent Systems).
 * 🗎 Sculley, David, Gary Holt, Daniel Golovin, Eugene Davydov, Todd Phillips, Dietmar Ebner, Vinay Chaudhary, Michael Young, Jean-Francois Crespo, and Dan Dennison. "[Hidden technical debt in machine learning systems](http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)." In Advances in neural information processing systems, pp. 2503-2511. 2015.
-
 ---
 
 # Learning goals
@@ -11,11 +8,8 @@
 * Explain how machine learning fits into the larger picture of building and maintaining production systems
 * Describe the typical components relating to AI in an AI-enabled system and typical design decisions to be made
 
----
-
 # AI-Enabled Systems
 
-----
 ## Whole System Perspective
 
 * A model is just one component of a larger system
@@ -27,11 +21,9 @@
 
 *let's look at a couple of examples*
 
-----
 ## Temi Transcription Service
 
 ![Temi Screenshot](temi.png)
-<!-- .element: class="stretch" -->
 
 https://www.temi.com/
 
@@ -39,24 +31,18 @@ Note: A model is very central to this service. Product built around
 a model. Still, lots of nonmodel code for UI, storage of customer data,
 credit card processing, ...
 
-----
 ## Microsoft Powerpoint
 
 ![Powerpoint screenshot with slide designer](powerpoint.png)
-<!-- .element: class="stretch" -->
 
 Read more: [How Azure Machine Learning enables PowerPoint Designer](https://azure.microsoft.com/en-us/blog/how-azure-machine-learning-enables-powerpoint-designer/), Azure Blog, March 2020
-
 
 Note: Traditional application that uses machine learning in a few smaller
 places (more and more these days).
 
-
-----
 ## Fall Detection Devices
 
 ![Smart watch](smartwatch.jpg)
-<!-- .element: class="stretch" -->
 
 (various devices explored, including smart watches, hearing aids, and wall and floor sensors)
 
@@ -64,18 +50,14 @@ Read more: [How fall detection is moving beyond the pendant](https://www.mobihea
 
 Note: Devices for older adults to detect falls and alert caretaker or emergency responders automatically or after interaction. Uses various inputs to detect falls.
 
-
-----
 ## Google Add Fraud Detection
 
 ![System Architecture of Google's Malicious Ads Detection System](adsfraud.png)
-<!-- .element: class="stretch" -->
 
 From: Sculley, D., M. Otey, M. Pohl, B. Spitznagel, J. Hainsworth, and Y. Zhou. Detecting Adversarial Advertisements in the Wild. In Proc. KDD, 2011.
 
 Note: See first homework assignment. System largely build around a model for a specific purpose but integrated into larger infrastructure.
 
-----
 ## Recidivism Prediction
 
 ```txt
@@ -85,22 +67,18 @@ ELSE IF more than three priors THEN predict arrest
 ELSE predict no arrest
 ```
 
-<!-- references -->
+
 Read more: Julia Angwin, Jeff Larson, Surya Mattu and Lauren Kirchner. "[Machine Bias](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing)." ProPublica 2016
 
 Note: The system is very narrowly built around a model, but has large societal implications.
 
-----
 ## Logistics, Route Planning
 
 ![Truck driving in landscape](logistics.jpg)
-<!-- .element: class="stretch" -->
 
 Note: Heavy AI (not just ML) integrated in large system approximating
 planning problems with many inputs, interfacing with many other systems.
 
-
-----
 ## Many more examples:
 
 * Product recommendations on Amazon
@@ -119,14 +97,9 @@ planning problems with many inputs, interfacing with many other systems.
 * Some for end users, some for employees, some for expert users
 * Big and small components of a larger system
 
-
-
-
-
-----
 ## Thinking about Systems
 
-* Holistic approach, looking at the larger picture, involving all stakeholders
+* Holistic（整体的） approach, looking at the larger picture, involving all stakeholders
 * Looking at relationships and interactions among components and environments
     - Everything is interconnected
     - Combining parts creates something new with emergent behavior
@@ -134,11 +107,9 @@ planning problems with many inputs, interfacing with many other systems.
 * Understand how humans interact with the system
 
 > A system is a set of inter-related components that work together in a particular environment to perform whatever functions are required to achieve the system's objective -- Donella Meadows
+>
+> Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Systems Thinking](https://medium.com/disruptive-design/tools-for-systems-thinkers-the-6-fundamental-concepts-of-systems-thinking-379cdac3dc6a)." Blogpost 2017
 
-<!-- references -->
-Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Systems Thinking](https://medium.com/disruptive-design/tools-for-systems-thinkers-the-6-fundamental-concepts-of-systems-thinking-379cdac3dc6a)." Blogpost 2017
-
-----
 ## System-Level Challenges for AI-Enabled Systems
 
 * Getting and updating data, concept drift, changing requirements
@@ -154,7 +125,6 @@ Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Syst
 
 **Examples?**
 
-----
 ## On Terminology
 
 * There is no standard term for referring to building systems with AI components
@@ -165,31 +135,12 @@ Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Syst
 + AIOps ~ using AI to make automated decisions in operations; DataOps ~ use of agile methods and automation in business data analytics; MLOps ~ technical infrastructure for operating AI-based products and on deploying updates
 + Developers with Software Engineering and ML skills were often referred to as "unicorns" in earlier days
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
 # Components of an AI-Enabled System
 
 (Using Hulten's Terminology)
 
-<!-- references -->
 * 🕮 Hulten, Geoff. "Building Intelligent Systems: A Guide to Machine Learning Engineering." (2018).
 
-----
 ## Elements of an Intelligent System
 
 * **Meaningful objective**: goals, requirements, business case
@@ -198,29 +149,18 @@ Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Syst
 * **Intelligence creation**: learning and evaluating models
 * **Orchestration**: operations -- maintaining and updating the system over time, debugging, countering abuse
 
-----
 ## Design Decisions for each Element?
-
-<!-- colstart -->
 
 * Meaningful objective
 * Intelligent experience / user interaction design
 * Intelligence implementation / infrastructure
 * Intelligence creation
 * Orchestration / operations
-<!-- col -->
+
 ![Powerpoint screenshot with slide designer](powerpoint.png)
 
-<!-- colend -->
-
-
-
-
-
----
 # User Interactions (Intelligent Experiences)
 
-----
 ## Designing Intelligent Experiences
 
 * How to use the output of a model's prediction (for a goal)?
@@ -234,47 +174,11 @@ Leyla Acaroglu. "[Tools for Systems Thinkers: The 6 Fundamental Concepts of Syst
     - Protection from mistakes
     - Collecting data for training
 
-----
-## Designing Intelligent Experiences
 
-<!-- colstart -->
-* How to use the output of a model's prediction (for a goal)?
-* Design considerations:
-    - How to present prediction to a user? Suggestions or automatically take actions?
-    - How to effectively influence the user's behavior toward the system's goal?
-    - How to minimize the consequences of flawed predictions?
-    - How to collect data to continue to learn from users and mistakes?
+Automatic slide design？
 
+Fall detection？
 
-<!-- col -->
-Automatic slide design:
-
-![Powerpoint screenshot with slide designer](powerpoint.png)
-
-<!-- colend -->
-----
-## Designing Intelligent Experiences
-
-<!-- colstart -->
-* How to use the output of a model's prediction (for a goal)?
-* Design considerations:
-    - How to present prediction to a user? Suggestions or automatically take actions?
-    - How to effectively influence the user's behavior toward the system's goal?
-    - How to minimize the consequences of flawed predictions?
-    - How to collect data to continue to learn from users and mistakes?
-
-
-<!-- col -->
-Fall detection:
-![Smart watch](smartwatch.jpg)
-
-<!-- colend -->
-
-
-
-
-
-----
 ## Forcefulness
 
 * Forceful (hard to ignore or stop):
@@ -289,7 +193,6 @@ Fall detection:
 
 **When to chose which?**
 
-----
 ## Modes of Interaction
 
 * Automate
@@ -302,7 +205,6 @@ Fall detection:
 
 Notes: Lots of examples in Hulten's book, Chapter 8
 
-----
 ## Frequency
 
 * Interact whenever a new prediction is available
@@ -317,9 +219,6 @@ Notes: Lots of examples in Hulten's book, Chapter 8
 
 Note: Examples: Interact frequently during navigation or giving fitness instructions (whenever things change); fewer predictions after many ignored ones
 
-
-
-----
 ## Factors to Consider
 
 When designing an intelligent experience consider:
@@ -330,23 +229,12 @@ When designing an intelligent experience consider:
 * Cost: What is the damage of a wrong prediction?
 * Model quality: How often is the prediction wrong?
 
-----
 ## Factors in Case Studies
 
 Consider: forcefulness, frequency, value, cost, model quality
+Automatic slide design？
+Fall detection？
 
-<!-- colstart -->
-Automatic slide design:
-![Powerpoint screenshot with slide designer](powerpoint.png)
-
-<!-- col -->
-Fall detection:
-![Smart watch](smartwatch.jpg)
-
-<!-- colend -->
-
-
-----
 ## Feedback (Telemetry)
 
 * To design good interactions we need to know how we are doing...
@@ -358,51 +246,26 @@ Fall detection:
 * How much cost are wrong predictions causing for users/the system's goals?
 * Are mistakes focused on specific kinds of inputs?
 
-
-----
 ## Initial Telemetry Ideas?
 
 Identify: usage, mistakes, cost of mistakes, benefits to user, benefits to goals
+Automatic slide design？
+Fall detection？
 
-<!-- colstart -->
-Automatic slide design:
-![Powerpoint screenshot with slide designer](powerpoint.png)
-
-<!-- col -->
-Fall detection:
-![Smart watch](smartwatch.jpg)
-
-<!-- colend -->
-
-----
 ## Outlook: Telemetry Design
 
 ![Temi Screenshot](temi.png)
-<!-- .element: class="stretch" -->
 
-More on this later...
+More on this later...（通过五星好评来获得feedback）
 
-
-
-
-
-
-
-
----
 # A Systems View on Safety
 
-
-----
 ## The Smart Toaster
 
 > the toaster may (occasionally) burn my toast, but should never burn down my kitchen
 
 ![Toaster](toaster.jpg)
-<!-- .element: class="stretch" -->
 
-
-----
 ## Making the Smart Toaster Safe
 
 Assume classification model:
@@ -411,9 +274,6 @@ $ \text{userPref}) \rightarrow \text{Boolean}$
 
 How to assure the toaster does not overhead?
 
-<!-- discussion -->
-
-----
 ## Safeguards / Guardrails
 
 * Hard constraints overrule model
@@ -423,10 +283,7 @@ How to assure the toaster does not overhead?
 
 
 ![A thermal fuse protecting the windings of a small motor](thermalfuse.png)
-<!-- .element: class="stretch" -->
-(Image CC BY-SA 4.0, C J Cowie)
 
-----
 ## Other Strategies
 
 * Improve the model, more data, more testing
@@ -436,29 +293,20 @@ How to assure the toaster does not overhead?
 
 **In all cases, look beyond model accuracy at the entire system**
 
-
-
-
-
----
 # A System View on Intelligence Infrastructure
 
-----
 ## Infrastructure for ML Components
 
 ![Plumming](plumming.png)
-<!-- .element: class="stretch" -->
 
 This was 2015; many of those boxes are getting increasingly standardized these days.
 
 
 Graphic from Sculley, et al. "[Hidden technical debt in machine learning systems](http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)." In Proc NIPS, 2015.
 
-
 Note: Even for a single ML component and it's pipeline, there is a lot of
 infrastructure to build and serve the model.
 
-----
 ## Thinking in Pipelines over Models
 
 * In production systems, models need to be deployed and updated
@@ -473,18 +321,11 @@ infrastructure to build and serve the model.
 
 ![Pipeline](pipeline.png)
 
-<!-- references -->
-
 * Graphic: Amershi et al. "[Software engineering for machine learning: A case study](https://www.microsoft.com/en-us/research/uploads/prod/2019/03/amershi-icse-2019_Software_Engineering_for_Machine_Learning.pdf)." In Proc ICSE-SEIP, 2019. 
 * Key challenge claim: O'Leary and Uchida. "[Common problems with Creating Machine Learning Pipelines from Existing Code](https://research.google/pubs/pub48984.pdf)." Proc. MLSys, 2020.
 
-
-
-
----
 # System Qualities vs Model Accuracy
 
-----
 ## Systems have Goals
 
 ... selling stuff, increasing engagement, encouraging responsible behavior
@@ -493,11 +334,10 @@ Model predictions support those goals
 
 **more next lecture**
 
-----
 ## More Accurate Predictions may not be THAT Important
 
 * "Good enough" may be good enough
-* Prediction critical for system success or just an gimmick?
+* Prediction critical for system success or just an gimmick（噱头）?
 * Better predictions may come at excessive costs 
     - need way more data, much longer training times
     - privacy concerns
@@ -505,15 +345,11 @@ Model predictions support those goals
     - e.g. explain decisions to users
 * Use only high-confidence predictions?
 
-
-----
 ## Beyond Model Quality
 
 Many other aspects of a model's quality may matter when operating a system
 
 **Examples?**
-
-<!-- discussion -->
 
 (more later)
 
@@ -529,9 +365,6 @@ maintainability
 
 
 
-
----
-
 <svg version="1.1" viewBox="0.0 0.0 800 400" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
         <style>
     text { font: 60px sans-serif; }
@@ -545,7 +378,6 @@ maintainability
 </svg>
 
 
----
 # Summary
 
 * Production AI-enabled systems require a *whole system perspective*, beyond just the model
@@ -553,3 +385,4 @@ maintainability
 * Large design space for user interface (intelligent experience): forcefulness, frequency, telemetry
 * Quality at a system level: safety beyond the model, beyond accuracy
 * Elevating the infrastructure: Thinking in pipelines, not models
+
