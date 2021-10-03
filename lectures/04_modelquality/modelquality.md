@@ -558,7 +558,6 @@ Use to identify subpopulations (validation datasets), not individual tests.
 * Minimizing redundant tests
 * Abstracting/simulating/mocking the environment
 
-----
 ## Automated Test Data Generation?
 
 ```java
@@ -572,10 +571,8 @@ model.predict([1, .02, ...])
 * Using knowledge about feature distributions (sample from each feature's distribution)
 * Knowledge about dependencies among features and whole population distribution (e.g., model with probabilistic programming language)
 * Mutate from existing inputs (e.g., small random modifications to select features)
-*
 * **But how do we get labels?**
 
-----
 ## Recall: The Oracle Problem
 
 *How do we know the expected output of a test?*
@@ -591,7 +588,6 @@ assertEquals(??, factorPrime(15485863));
 
 ![Solving the Oracle Problem with Gold Standard or Assertions](oracle.svg)
 
-----
 ## Machine Learned Models = Untestable Software?
 
 * Manually construct input-output pairs (does not scale, cannot automate)
@@ -604,13 +600,7 @@ assertEquals(??, factorPrime(15485863));
 * Manually written assertions -- partial specifications checked at runtime
     - **??**
 
-----
-## Invariants in Machine Learned Models?
-
-<!-- discussion -->
-
-----
-## Examples of Invariants 
+## Examples of Invariants in Machine Learned Models
 
 * Credit rating should not depend on gender:
     - $\forall x. f(x[\text{gender} \leftarrow \text{male}]) = f(x[\text{gender} \leftarrow \text{female}])$
@@ -623,9 +613,8 @@ assertEquals(??, factorPrime(15485863));
 * Low credit scores should never get a loan (sufficient conditions for classification, "anchors"):
     - $\forall x. x.\text{score} < 649 \Rightarrow \neg f(x)$
 
-Identifying invariants requires domain knowledge of the problem!
+Identifying invariants requires domain knowledge of the problem! (invariant mining, specification mining)
 
-----
 ## Metamorphic Testing
 
 Formal description of relationships among inputs and outputs (*Metamorphic Relations*)
@@ -634,11 +623,8 @@ In general, for a model $f$ and inputs $x$ define two functions to transform inp
 
 $\forall x. f(g\_I(x)) = g\_O(f(x))$
 
-<!-- vspace -->
-
 e.g. $g\_I(x)= \texttt{replace}(x, \text{" is ", " is not "})$ and $g\_O(x)=\neg x$
 
-----
 ## On Testing with Invariants/Assertions
 
 * Defining good metamorphic relations requires knowledge of the problem domain
@@ -647,96 +633,45 @@ e.g. $g\_I(x)= \texttt{replace}(x, \text{" is ", " is not "})$ and $g\_O(x)=\neg
 * Invariants and near-invariants can be mined automatically from sample data (see *specification mining* and *anchors*)
 
 
-<!-- references -->
 Further reading:
+
 * Segura, Sergio, Gordon Fraser, Ana B. Sanchez, and Antonio Ruiz-Cortés. "[A survey on metamorphic testing](https://core.ac.uk/download/pdf/74235918.pdf)." IEEE Transactions on software engineering 42, no. 9 (2016): 805-824.
 * Ribeiro, Marco Tulio, Sameer Singh, and Carlos Guestrin. "[Anchors: High-precision model-agnostic explanations](https://sameersingh.org/files/papers/anchors-aaai18.pdf)." In Thirty-Second AAAI Conference on Artificial Intelligence. 2018.
 
-
-----
 ## Invariant Checking aligns with Requirements Validation
 
 ![Machine Learning Validation vs Verification](mlvalidation.png)
 
-
-
-
-----
-## Automated Testing / Test Case Generation
-
-* Many techniques to generate test cases
-* Dumb fuzzing: generate random inputs
-* Smart fuzzing (e.g., symbolic execution, coverage guided fuzzing): generate inputs to maximally cover the implementation
-* Program analysis to understand the shape of inputs, learning from existing tests
-* Minimizing redundant tests
-* Abstracting/simulating/mocking the environment
-
-* Typically looking for crashing bugs or assertion violations
-
-
-----
 ## Approaches for Checking in Variants
 
 * Generating test data (random, distributions) usually easy
 * For many techniques gradient-based techniques to search for invariant violations (see adversarial ML)
 * Early work on formally verifying invariants for certain models (e.g., small deep neural networks)
 
-<!-- references -->
+
 
 Further readings: 
 Singh, Gagandeep, Timon Gehr, Markus Püschel, and Martin Vechev. "[An abstract domain for certifying neural networks](https://dl.acm.org/doi/pdf/10.1145/3290354)." Proceedings of the ACM on Programming Languages 3, no. POPL (2019): 1-30.
 
-
-----
 ## One More Thing: Simulation-Based Testing
 
-<!-- colstart -->
-<!-- smallish -->
 * Derive input-output pairs from simulation, esp. in vision systems
 * Example: Vision for self-driving cars:
     * Render scene -> add noise -> recognize -> compare recognized result with simulator state
 * Quality depends on quality of the simulator and how well it can produce inputs from outputs: 
     * examples: render picture/video, synthesize speech, ... 
     * Less suitable where input-output relationship unknown, e.g., cancer detection, housing price prediction, shopping recommendations
-    <!-- col -->
 ```mermaid
 graph TD;
     output -->|simulation| input
     input -->|prediction| output
 ```
-<!-- colend -->
-
-<!-- references -->
-
 Further readings: Zhang, Mengshi, Yuqun Zhang, Lingming Zhang, Cong Liu, and Sarfraz Khurshid. "DeepRoad: GAN-based metamorphic testing and input validation framework for autonomous driving systems." In Proceedings of the 33rd ACM/IEEE International Conference on Automated Software Engineering, pp. 132-142. 2018.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
 # Continuous Integration for Model Quality
 
 [![Uber's internal dashboard](uber-dashboard.png)](https://eng.uber.com/michelangelo/)
-<!-- .element: class="stretch" -->
 
-----
-## Continuous Integration for Model Quality?
-
-<!-- discussion -->
-----
 ## Continuous Integration for Model Quality
 
 * Testing script
@@ -749,66 +684,24 @@ Further readings: Zhang, Mengshi, Yuqun Zhang, Lingming Zhang, Cong Liu, and Sar
 * Continuous integration tool can trigger test script and parse output, plot for comparisons (e.g., similar to performance tests)
 * Optionally: Continuous deployment to production server
 
-----
 ## Dashboards for Model Evaluation Results
 
 [![Uber's internal dashboard](uber-dashboard.png)](https://eng.uber.com/michelangelo/)
 
-<!-- references  -->
-
 Jeremy Hermann and Mike Del Balso. [Meet Michelangelo: Uber’s Machine Learning Platform](https://eng.uber.com/michelangelo/). Blog, 2017
-
-----
 
 ## Specialized CI Systems
 
 ![Ease.ml/ci](easeml.png)
 
-<!-- references -->
-
 Renggli et. al, [Continuous Integration of Machine Learning Models with ease.ml/ci: Towards a Rigorous Yet Practical Treatment](http://www.sysml.cc/doc/2019/162.pdf), SysML 2019
 
-----
 ## Dashboards for Comparing Models
 
 ![MLflow UI](mlflow-web-ui.png)
 
-<!-- references -->
-
 Matei Zaharia. [Introducing MLflow: an Open Source Machine Learning Platform](https://databricks.com/blog/2018/06/05/introducing-mlflow-an-open-source-machine-learning-platform.html), 2018
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
----
 # Summary
 
 * Model prediction accuracy only one part of system quality

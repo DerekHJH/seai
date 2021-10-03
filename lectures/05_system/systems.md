@@ -1,17 +1,5 @@
 ---
-author: Christian Kaestner
-title: "17-445: From Models to AI-Enabled Systems"
-semester: Summer 2020
-footer: "17-445 Software Engineering for AI-Enabled Systems, Christian Kaestner"
-license: Creative Commons Attribution 4.0 International (CC BY 4.0)
----  
-
 # From Models to AI-Enabled Systems
-
-
-Christian Kaestner
-
-<!-- references -->
 
 * 🕮 Hulten, Geoff. "Building Intelligent Systems: A Guide to Machine Learning Engineering." (2018), Chapters 5 (Components of Intelligent Systems).
 * 🗎 Sculley, David, Gary Holt, Daniel Golovin, Eugene Davydov, Todd Phillips, Dietmar Ebner, Vinay Chaudhary, Michael Young, Jean-Francois Crespo, and Dan Dennison. "[Hidden technical debt in machine learning systems](http://papers.nips.cc/paper/5656-hidden-technical-debt-in-machine-learning-systems.pdf)." In Advances in neural information processing systems, pp. 2503-2511. 2015.
@@ -296,6 +284,7 @@ Fall detection:
     - Prompt that does not require immediate answer 
     - Icon or information box making suggestion
     
+
 **Examples?**
 
 **When to chose which?**
