@@ -1,23 +1,9 @@
 ---
-author: Christian Kaestner
-title: "17-445: "
-semester: Summer 2020
-footer: "17-445 Software Engineering for AI-Enabled Systems, Christian Kaestner"
-license: Creative Commons Attribution 4.0 International (CC BY 4.0)
----  
-
 # Goals and Success Measures for AI-Enabled Systems
-
-
-
-Christian Kaestner
-
-<!-- references -->
 
 Required Readings: 🕮 Hulten, Geoff. "Building Intelligent Systems: A Guide to Machine Learning Engineering." (2018), Chapters 2 (Knowing when to use IS), 4 (Defining the IS’s Goals) and 15 (Intelligent Telemetry)
 
 Suggested complementary reading: 🕮 Ajay Agrawal, Joshua Gans, Avi Goldfarb. “[Prediction Machines: The Simple Economics of Artificial Intelligence](https://cmu.primo.exlibrisgroup.com/permalink/01CMU_INST/6lpsnm/alma991019698987304436)” 2018 
-
 ---
 
 # Learning goals
@@ -26,8 +12,6 @@ Suggested complementary reading: 🕮 Ajay Agrawal, Joshua Gans, Avi Goldfarb. �
 * Define system goals and map them to goals for the AI component
 * Design and implement suitable measures and corresponding telemetry
 
-
----
 ## Today's Case Study: Spotify Personalized Playlists
 
 [![Spotify Screenshot of (My) Personalized Playlists](spotify.png)](spotify.png)
